@@ -78,3 +78,26 @@ button{
 .telefon{
     margin-bottom: 20px;
 }
+
+/* Servicii */
+
+.mainServicii{
+    background-color: rgb(144 165 138);
+    height:  950px;
+}
+
+.list-group{
+    background-color: white;
+}
+
+.cardTitle{
+    background-color: #DBE2DA;
+    width: 670px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    
+}
