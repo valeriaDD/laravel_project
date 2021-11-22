@@ -88,11 +88,13 @@ button{
 
 .list-group{
     background-color: white;
+    overflow-y: auto;
+    height: 600px;
 }
 
 .cardTitle{
     background-color: #DBE2DA;
-    width: 670px;
+    width: 70vh;
     height: 98px;
     display: flex;
     justify-content: center;

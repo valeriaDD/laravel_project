@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' type='text/css' media='screen' href='CSSfile.css'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' type='text/css' media='screen' href='CSSfile.css'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
+
 <body>
   <div class="mainServicii">
     <!-- Header -->
@@ -33,54 +35,58 @@
 
     <div class="contentServicii p-2 pb-5 pt-5">
       <div class="container">
-      <div class="d-flex justify-content-center ">
-        
-  
-        <div class="col-2">
-          <div id="list-example" class="list-group ">
-            <div class="h5 ms-5 ps-4 p-2">Servicii</div>
-            <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-5">Item 5</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-6">Item 6</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-7">Item 7</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-8">Item 8</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-9">Item 9</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-10">Item 10</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-11">Item 11</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-12">Item 12</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-13">Item 13</a>
+        <div class="d-flex justify-content-center ">
+
+
+          <div class="col-2">
+            <div id="list-example" class="list-group ">
+              <div class="h5 ms-5 ps-4 p-2">Servicii</div>
+              <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-5">Item 5</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-6">Item 6</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-7">Item 7</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-8">Item 8</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-9">Item 9</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-10">Item 10</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-11">Item 11</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-12">Item 12</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-13">Item 13</a>
+            </div>
+
           </div>
 
-        </div>
+          <div class="col-10 ms-2 d-flex">
 
-        <div class="col-10 ms-2 d-flex justify-content-center">
+            <div class="card align-self-stretch col-12">
+              <div class="col align-self-center">
+                <div class="cardTitle">
 
-          <div class="card align-self-stretch col-12">
-            <div class="col align-self-center">
-            <div class="cardTitle ">
-              <h3 class="h3"> Masaj Terapeutic</h3>
-              <div class="zona">Coapse si Abdomen</div>
+                  <div class="col align-center">
+                    <h3 class="h2 text-center"> Masaj Terapeutic</h3>
+                    <div class="h6 text-center">Coapse si Abdomen</div>
+                  </div>
+
+                </div>
+              </div>
             </div>
-            </div>
+
           </div>
-
         </div>
       </div>
+
+
     </div>
 
 
-  </div>
-
- 
 
   </div>
 
 
 
-      <!-- Footer -->
+  <!-- Footer -->
 
   <div class="footer">
     <div class="d-flex justify-content-evenly">
@@ -132,13 +138,13 @@
 
     </div>
   </div>
-  
-<!-- END Footer -->
+
+  <!-- END Footer -->
 
 
 
 
-  
+
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
     crossorigin="anonymous"></script>
@@ -146,4 +152,5 @@
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
     crossorigin="anonymous"></script>
 </body>
+
 </html>
