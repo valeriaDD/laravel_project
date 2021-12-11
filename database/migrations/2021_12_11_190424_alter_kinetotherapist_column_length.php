@@ -1,22 +1,23 @@
 <?php
 
+
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AlterKinetotherapistColumnLength extends Migration
 {
-    /**
+     /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        DB::statement("
-            ALTER TABLE kinetotherapist 
-                MODIFY COLUMN name varchar(100) NOT NULL,
-                MODIFY COLUMN surname varchar(100) NOT NULL;
-        ");
+        Schema::table('kinetotherapist', function (Blueprint $table) {
+            $table->string('name',100)->change();
+            $table->string('surname',100)->change();
+        });
     }
 
     /**
@@ -26,6 +27,6 @@ class AlterKinetotherapistColumnLength extends Migration
      */
     public function down()
     {
-        // nonessential rollback
+        //nonessential rollback
     }
 }
