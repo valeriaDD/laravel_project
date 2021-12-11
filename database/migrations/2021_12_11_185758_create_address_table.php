@@ -13,10 +13,10 @@ class CreateAddressTable extends Migration
      */
     public function up()
     {
-        Schema::create('address', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->unsignedBigInteger('kinetotherapist_id');
             $table->primary('kinetotherapist_id');
-            $table->foreign('kinetotherapist_id')->references('id')->on('kinetotherapist');
+            $table->foreign('kinetotherapist_id')->references('id')->on('kinetotherapists');
             $table->string('city', 100);
             $table->string('street', 200)->nullable();
             $table->string('street_nr', 20)->nullable();
@@ -31,6 +31,6 @@ class CreateAddressTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address');
+        Schema::dropIfExists('addresses');
     }
 }

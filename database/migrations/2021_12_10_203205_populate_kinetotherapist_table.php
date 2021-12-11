@@ -15,7 +15,7 @@ class PopulateKinetotherapistTable extends Migration
     {
         DB::statement("
 
-       INSERT INTO kinetotherapist (name, surname, phone_nr, abbreviation)
+       INSERT INTO kinetotherapists (name, surname, phone_nr, abbreviation)
         VALUES  ('Name1','Surname1', NULL, 'Worker1'),
 		('Name2','Surname2', NULL, 'Worker2'),
 		('Name3','Surname3', NULL, 'Worker3'),
@@ -34,7 +34,7 @@ class PopulateKinetotherapistTable extends Migration
     {
         DB::statement("
          
-         TRUNCATE TABLE `kinetotherapist`;
+         TRUNCATE TABLE `kinetotherapists`;
          
          ");
     }

@@ -13,7 +13,7 @@ class AlterAddressServicesDropColumnBlockNr extends Migration
      */
     public function up()
     {
-        Schema::table('address', function (Blueprint $table) {
+        Schema::table('addresses', function (Blueprint $table) {
             $table->dropColumn('block_nr');
         });
     }
@@ -25,7 +25,7 @@ class AlterAddressServicesDropColumnBlockNr extends Migration
      */
     public function down()
     {
-        Schema::table('address', function (Blueprint $table) {
+        Schema::table('addresses', function (Blueprint $table) {
             $table->string('block_nr',10);
         });
     }

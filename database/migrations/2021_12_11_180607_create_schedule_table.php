@@ -17,7 +17,7 @@ class CreateScheduleTable extends Migration
             $table->unsignedBigInteger('kinetotherapist_id');
             $table->unsignedBigInteger('working_day_id');
             $table->primary(['kinetotherapist_id', 'working_day_id']);
-            $table->foreign('kinetotherapist_id')->references('id')->on('kinetotherapist');
+            $table->foreign('kinetotherapist_id')->references('id')->on('kinetotherapists');
             $table->foreign('working_day_id')->references('id')->on('working_days');
         });
     }

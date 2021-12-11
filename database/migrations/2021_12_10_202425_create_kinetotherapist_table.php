@@ -15,7 +15,7 @@ class CreateKinetotherapistTable extends Migration
     {
         DB::statement("
 
-        CREATE TABLE kinetotherapist (
+        CREATE TABLE kinetotherapists (
             id BIGINT UNSIGNED AUTO_INCREMENT,
             name VARCHAR(12) NOT NULL,
             surname VARCHAR(12) NOT NULL,
@@ -36,7 +36,7 @@ class CreateKinetotherapistTable extends Migration
     {
         DB::statement("
          
-         DROP TABLE kinetotherapist ;
+         DROP TABLE kinetotherapists ;
          
          ");
     }
