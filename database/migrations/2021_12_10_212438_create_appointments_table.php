@@ -18,10 +18,9 @@ class CreateAppointmentsTable extends Migration
             $table->foreignId('client_id')->constrained('clients')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('kinetotherapist_id')->constrained('kinetotherapists')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('service_id')->constrained('services', 'id')->cascadeOnUpdate()->restrictOnDelete();
-            $table->date('data');
+            $table->date('date');
             $table->time('start_time');
             $table->time('end_time');
-            $table->timestamps();
         });
     }
 

@@ -16,10 +16,12 @@ class CreateAddressTable extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->unsignedBigInteger('kinetotherapist_id');
             $table->primary('kinetotherapist_id');
-            $table->foreign('kinetotherapist_id')->references('id')->on('kinetotherapists');
+            $table->foreign('kinetotherapist_id')->references('id')->on('kinetotherapists')
+                    ->cascadeOnUpdate()
+                    ->cascadeOnDelete();
             $table->string('city', 100);
-            $table->string('street', 200)->nullable();
-            $table->string('street_nr', 20)->nullable();
+            $table->string('street', 100)->nullable();
+            $table->string('street_nr', 50)->nullable();
             $table->string('block_nr',10)->nullable();
         });
     }
