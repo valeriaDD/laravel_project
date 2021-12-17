@@ -21,7 +21,8 @@ class Address extends Model
         'street_nr',
     ];
 
-    protected function address (){
-        return $this->belongsTo('Kinetotherapeut', 'foreign_key', 'id');
+    protected function kinetotherapeut (){
+        
+        return $this->belongsTo(Kinetotherapeut::class);
     }
 }

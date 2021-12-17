@@ -17,7 +17,8 @@ class Service extends Model
         'abbreviation',
     ];
 
-    public function Appointment(){
-        return $this->hasMany(Appointment::class, 'foreign_key', 'service_id');
+    public function appointment(){
+
+        return $this->hasMany(Appointment::class, 'service_id');
     }
 }

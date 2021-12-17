@@ -11,7 +11,8 @@ class Day extends Model
 
     protected $guarded = ['*'];
 
-    public function WorkingDay(){
-        return $this->belongsTo(WorkingDay::class);
+    public function workingDay(){
+
+        return $this->belongsTo(WorkingDay::class, 'id', 'day_id');
     }
 }

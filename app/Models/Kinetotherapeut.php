@@ -19,11 +19,14 @@ class Kinetotherapeut extends Model
     ];
 
 
-    public function  Address(){
-        return $this->hasOne(Address::class,'foreign_key', 'kinetotherapist_id');
+    public function  address(){
+
+        return $this->hasOne(Address::class,'kinetotherapist_id');
     }
-    public function Appointment(){
-        return $this->hasMany(Appointment::class,'foreign_key', 'kinetotherapist_id');
+
+    public function appointment(){
+
+        return $this->hasMany(Appointment::class,'kinetotherapist_id');
     }
     
 }

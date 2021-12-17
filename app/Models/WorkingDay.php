@@ -15,7 +15,8 @@ class WorkingDay extends Model
         'end_time'
     ];
 
-    public function Day(){
-        return $this->hasMany(Day::class);
+    public function day(){
+
+        return $this->hasMany(Day::class, 'day_id');
     }
 }

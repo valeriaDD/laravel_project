@@ -18,15 +18,15 @@ class Appointment extends Model
         'start_time',
     ];
 
-    public function Kinetotherapeut(){
-        return $this->belongsTo(Kinetotherapeut::class);
+    public function kinetotherapeut(){
+        return $this->belongsTo(Kinetotherapeut::class, 'id', 'kinetotherapist_id');
     }
 
-    public function Client(){
-        return $this->belongsTo(Client::class);
+    public function client(){
+        return $this->belongsTo(Client::class, 'id', 'client_id');
     }
 
-    public function Service(){
-        return $this->belongsTo(Service::class);
+    public function service(){
+        return $this->belongsTo(Service::class, 'id', 'service_id');
     }
 }
