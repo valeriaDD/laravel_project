@@ -17,9 +17,9 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->string('author_email');
             $table->text('message');
-            $table->foreignId('article_id')->constrained('articles')
-            ->onDelete('CASCADE')
-            ->onUpdate('CASCADE');
+        $table->foreignId('article_id')->constrained('articles')
+        ->onDelete('CASCADE')
+        ->onUpdate('CASCADE');
             $table->timestamps();
         });
     }

@@ -20,7 +20,6 @@ class CreateArticleBlogTagTable extends Migration
             $table->foreignId('blog_tag_id')->constrained('blog_tags')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
-                $table->primary(['article_id', 'blog_tag_id']);
         });
     }
 
