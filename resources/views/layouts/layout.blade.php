@@ -16,10 +16,8 @@
 <body>
 
 
-
     @yield('content')
 
-    @include('layouts.footer')
 
     <script>
         var button = document.getElementById('myButton');

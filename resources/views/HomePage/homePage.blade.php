@@ -40,4 +40,8 @@
     <div>
         @include('HomePage.team')
     </div>
+
+    <div>
+        @include("layouts.footer")
+    </div>
 @endsection
