@@ -19,12 +19,21 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+// Home Page
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
 //Blog Page
-Route::get('/blog', [BlogController::class, 'sendContact']);
+Route::get('/blog', [BlogController::class, 'index'])->name('noutati');
 
-Route::get('/home', 'App\Http\Controllers\HomeController@homeRoute')->name('home');
+//Article Page
+Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('article');
 
-Route::get('/users', function(){
-    return 'Hey, there!';
-});
+//Services Page
+Route::get('/services', 'App\Http\Controllers\ServicesController@index')->name('services');
+
+//Contact Page
+Route::get('/contacts', 'App\Http\Controllers\ContactsController@index')->name('contacts');
+
+//Appointment Page
+Route::get('/appointment', 'App\Http\Controllers\AppointmentController@index')->name('appointment');
+
