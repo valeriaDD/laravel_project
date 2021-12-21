@@ -16,7 +16,7 @@ class Client extends Model
         'phone'
     ];
 
-    public function appointment(){
+    public function appointments(){
 
         return $this->hasMany(Appointment::class, 'client_id');
     }

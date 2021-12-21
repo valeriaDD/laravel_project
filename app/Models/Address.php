@@ -21,8 +21,8 @@ class Address extends Model
         'street_nr',
     ];
 
-    protected function kinetotherapeut (){
-        
+    public function kinetotherapeut()
+    {
         return $this->belongsTo(Kinetotherapeut::class);
     }
 }

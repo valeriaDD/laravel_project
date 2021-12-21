@@ -13,6 +13,6 @@ class Day extends Model
 
     public function workingDay(){
 
-        return $this->belongsTo(WorkingDay::class, 'id', 'day_id');
+        return $this->hasMany(WorkingDay::class, 'id', 'day_id');
     }
 }

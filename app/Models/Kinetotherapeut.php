@@ -24,9 +24,13 @@ class Kinetotherapeut extends Model
         return $this->hasOne(Address::class,'kinetotherapist_id');
     }
 
-    public function appointment(){
+    public function appointments(){
 
         return $this->hasMany(Appointment::class,'kinetotherapist_id');
     }
     
+    public function workingDays(){
+
+        return $this->belongsToMany(Kinetotherapeut::class, 'kinetotherapeut_workingday');
+    }
 }

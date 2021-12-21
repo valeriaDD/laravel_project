@@ -17,6 +17,12 @@ class WorkingDay extends Model
 
     public function day(){
 
-        return $this->hasMany(Day::class, 'day_id');
+        return $this->BelongsTo(Day::class, 'day_id');
+    }
+
+
+    public function kinetotherapeuts(){
+
+        return $this->belongsToMany(Kinetotherapeut::class, 'kinetotherapeut_workingday');
     }
 }
