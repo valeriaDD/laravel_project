@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class contactController extends Controller
+class BlogController extends Controller
 {
     public function sendContact() {
         return view('ContactPage.contactPage');
     }
 }
+

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\contactController;
 
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +20,11 @@ use App\Http\Controllers\contactController;
 */
 
 
-// Send Contact 
-Route::get('/', 'App\Http\Controllers\contactController@sendContact');
+//Blog Page
+Route::get('/blog', [BlogController::class, 'sendContact']);
 
-// Show Controller
-Route::get('/contact', 'App\Http\Controllers\contactController@showContact' );
+Route::get('/home', 'App\Http\Controllers\HomeController@homeRoute')->name('home');
+
+Route::get('/users', function(){
+    return 'Hey, there!';
+});
