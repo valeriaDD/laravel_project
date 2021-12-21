@@ -2,20 +2,22 @@
 
 @section('content')
 
-<div>
-@include('layouts.header')
-</div>
+    <div>
+        @include('layouts.header')
+    </div>
 
-<div class="container">
+    <div class="container">
+        <div class="card-deck">
 
-    <div class="card-deck">
-        @include('NoutatiPage.noutateItem')
-      </div>
+            @foreach ($articles as $article)
+                    @include('NoutatiPage.noutateItem', ['article' => $article])
+            @endforeach
+        </div>
 
-</div>
+    </div>
 
-<div class="footerContacte p-5">
-    @include('layouts.footer')
-</div>
+    <div class="footerContacte p-5">
+        @include('layouts.footer')
+    </div>
 
 @endsection
