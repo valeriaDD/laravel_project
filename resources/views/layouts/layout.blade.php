@@ -22,12 +22,12 @@
     <script>
         var button = document.getElementById('myButton');
         button.onclick = function() {
-            location.assign('./Programeaza.html');
+            location.assign('{{ route('appointment') }}');
         }
 
         var button = document.getElementById('myButton2');
         button.onclick = function() {
-            location.assign('./Programeaza.html');
+            location.assign('route('appointment')');
         }
     </script>
 

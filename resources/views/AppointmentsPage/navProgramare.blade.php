@@ -1,39 +1,15 @@
-<div class="col-2">
-    <div id="list-example" class="list-group ">
-        <div class="h5 ms-5 ps-4 p-2">Servicii</div>
-        <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-5">Item 5</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-5">Item 5</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-5">Item 5</a>
-        
-    </div>
-
-</div>
-
-
 <div class="col-10 ms-2 d-flex">
-
     <div class="card col-12" style="background-color: #DBE2DA;">
-
-
-
+       
+        {{-- Service Name --}}
         <div class="row align-self-center">
-
             <div class="cardTitle2" style="margin-top:30px;">
                 <h3 class="h4 text-center p-3"> Masaj Terapeutic - Coapse si Abdomen</h3>
             </div>
         </div>
+        {{-- END Service Name --}}
+
+        {{-- Appointment making form --}}
         <form>
 
             <div class="row justify-content-md-center p-3">
@@ -97,6 +73,7 @@
                 </div>
             </div>
         </form>
-
+        {{-- END Appointment making form --}}
+        
     </div>
 </div>

@@ -9,8 +9,9 @@
         <div class="container">
             <div class="d-flex justify-content-center ">
 
+                @include('ServiciiPage.navServicii')
                 @include('AppointmentsPage.navProgramare')
-            </div>
+            
         </div>
     </div>
 

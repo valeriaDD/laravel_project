@@ -17,7 +17,7 @@
                             dignissim a
                             lacus ac bibendum.
                         </p>
-                        <button type="button" id="myButton2" class="btn btn-light mt-3">Consultatie Gratuita!</button>
+                        <a href="{{ route('appointment') }}"   type="button" id="myButton2" class="btn btn-light mt-3">Consultatie Gratuita!</a>
                     </div>
                 </div>
 
