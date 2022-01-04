@@ -1,6 +1,6 @@
 
 <div class="card border-success mt-5 mb-5">
-    <img class="card-img-top" src="{{ $article->image }}" alt="card-img-top img-fluid">
+    <img class="card-img-top" src="../article_img/{{ $article->image }}" alt="img-fluid">
     <div class="card-body">
         <h5 class="card-title">{{ $article->title }}</h5>
         <p class="card-text">{{ $article->excerpt }}</p>

@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          Article::factory()
-             ->count(10)
+             ->count(5)
              ->has(BlogTag::factory(), 'tags')
              ->has(BlogCategory::factory(), 'category')
              ->create();
 
-        Comment::factory()->count(20)->create();
+        Comment::factory()->count(10)->create();
     }
 }

@@ -31,6 +31,9 @@ Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('ar
 //Services Page
 Route::get('/services', 'App\Http\Controllers\ServicesController@index')->name('services');
 
+//Services Page with a specific service displayed
+Route::get('/services/{id}', 'App\Http\Controllers\ServicesController@show_product')->name('services_id');
+
 //Contact Page
 Route::get('/contacts', 'App\Http\Controllers\ContactsController@index')->name('contacts');
 
