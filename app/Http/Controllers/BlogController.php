@@ -27,5 +27,9 @@ class BlogController extends Controller
                                                             'categories' => $categories]                                          
                                                 ]);
     }
+
+
+
+    
 }
 

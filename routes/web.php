@@ -26,7 +26,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('/blog', [BlogController::class, 'index'])->name('noutati');
 
 //Article Page
-Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('article');
+Route::get('/blog/{id}', 'App\Http\Controllers\ArticleController@show')->name('article');
 
 //Services Page
 Route::get('/services', 'App\Http\Controllers\ServicesController@index')->name('services');

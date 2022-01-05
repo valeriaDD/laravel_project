@@ -9,9 +9,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/* a{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-} */
+a:hover {
+    background-color: #DBE2DA;
+  }
+
+
 
 .FirstPart{
     background-color: rgb(144 165 138);
@@ -61,6 +63,7 @@
     margin-top: 20px;
     background-color: rgb(219 226 218);
     padding: 40px 70px;
+    
 }
 
 .footer{

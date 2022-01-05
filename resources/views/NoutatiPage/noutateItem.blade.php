@@ -6,7 +6,7 @@
         <p class="card-text">{{ $article->excerpt }}</p>
         <div class="row">
             <div class="col">
-                <a href="{{ route('article') }}" class="nav-link px-2 link-success">Afla mai multe</a>
+                <a href="/blog/{{ $article->id }}" class="nav-link px-2 link-success">Afla mai multe</a>
             </div>
             <div class="col text-end">
                 {{ $article->published_at }}
