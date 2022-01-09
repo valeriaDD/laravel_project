@@ -20,7 +20,7 @@ class CommentFactory extends Factory
         return [
             'author_email' => $this->faker->email(),
             'message' => $this->faker->paragraph(),
-            'article_id' => Article::factory(),
+            'article_id' => Article::all()->random()->id,
         ];
     }
 }
