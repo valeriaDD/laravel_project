@@ -1,4 +1,3 @@
-
 @extends('layouts.layout')
 
 
@@ -19,21 +18,23 @@
             <div class="col-8 align-self-center">
                 <div class="h4 text-center ">Contactati-ne!</div>
                 <div class="p text-center p-3"> Daca aveti ceva neclaritati, nu ezitati sa ne contactati! </div>
-                <form>
+                <form action="{{ route('contacts.send') }}" method="POST" name="contact-form">
                     <div class="row justify-content-center">
 
                         <div class="col-sm-4">
                             <div class="input-group mb-3">
-
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Email">
+                                @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="input-group mb-3">
-
-                                <input type="text" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Nume">
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Nume">
                             </div>
                         </div>
 
@@ -41,13 +42,17 @@
                             <div class="form-group">
                                 <input class="form-control mb-0" type="text" value="Mesaj"
                                     aria-label="Disabled input example" disabled readonly>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                    @error('message')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <textarea name="message" class="form-control" id="message" rows="4"></textarea>
                             </div>
                         </div>
 
                         <div class="d-flex flex-row-reverse p-3">
                             <div class="col-sm-2 ">
-                                <button type="button" class="btn btn-dark" id="submit">Send</button>
+                                @csrf
+                                <button type="submit" class="btn btn-dark">Send</button>
                             </div>
                         </div>
 

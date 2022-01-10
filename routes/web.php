@@ -36,6 +36,7 @@ Route::get('/services/{id}', 'App\Http\Controllers\ServicesController@show_produ
 
 //Contact Page
 Route::get('/contacts', 'App\Http\Controllers\ContactsController@index')->name('contacts');
+Route::post('/contactUs', 'App\Http\Controllers\ContactsController@send')->name('contacts.send');
 
 //Appointment Page
 Route::get('/appointment', 'App\Http\Controllers\AppointmentController@index')->name('appointment');
