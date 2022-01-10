@@ -14,7 +14,9 @@ class ContactsController extends Controller
 
     public function send(ContactsRequest $request): RedirectResponse
     {
-        dd($request->all());
+        //dd($request->validated());
+        \Log::debug('test',$request->validated());
+        
 
         return redirect()->route('contacts');
     }

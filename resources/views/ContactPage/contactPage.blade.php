@@ -26,7 +26,7 @@
                                 @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                                <input type="email" required="required" value="{{ old('email') }}" name="email" class="form-control" id="email" placeholder="Email">
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -34,7 +34,7 @@
                                 @error('name')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Nume">
+                                <input type="text" required="required" value="{{ old('name') }}" name="name" class="form-control" id="name" placeholder="Nume">
                             </div>
                         </div>
 
@@ -45,7 +45,7 @@
                                     @error('message')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <textarea name="message" class="form-control" id="message" rows="4"></textarea>
+                                <textarea required="required" value="{{ old('message') }}" name="message" class="form-control" id="message" rows="4"></textarea>
                             </div>
                         </div>
 
