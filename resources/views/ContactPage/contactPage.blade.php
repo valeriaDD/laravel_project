@@ -29,6 +29,7 @@
                                 <input type="email" required="required" value="{{ old('email') }}" name="email" class="form-control" id="email" placeholder="Email">
                             </div>
                         </div>
+                        
                         <div class="col-sm-4">
                             <div class="input-group mb-3">
                                 @error('name')
@@ -38,14 +39,26 @@
                             </div>
                         </div>
 
+                        <div class="col-md-8 mb-3">
+                            @error('gender')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            <select  class="form-control" name="gender">
+                                <option value="">Selecteaza genul</option>
+                                <option @if(old('gender') === 'Feminin') selected @endif value="Feminin" >Feminin</option>
+                                <option @if(old('gender') === 'Masculin') selected @endif value="Masculin" >Masculin</option>
+                                <option @if(old('gender') === 'Altele') selected @endif value="Altele" >Altele</option>
+                            </select>
+                        </div>
+
                         <div class="col-md-8">
                             <div class="form-group">
                                 <input class="form-control mb-0" type="text" value="Mesaj"
                                     aria-label="Disabled input example" disabled readonly>
-                                    @error('message')
+                                    @error('messageText')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <textarea required="required" value="{{ old('message') }}" name="message" class="form-control" id="message" rows="4"></textarea>
+                                <textarea type="text" name="messageText" class="form-control" id="messageText" rows="4">{{ old('messageText') }}</textarea>
                             </div>
                         </div>
 

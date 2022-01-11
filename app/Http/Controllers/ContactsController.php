@@ -25,7 +25,8 @@ class ContactsController extends Controller
                     [
                         'email' => $data['email'],
                         'name' => $data['name'],
-                        'messageText' => $data['message']
+                        'gender' => $data['gender'],
+                        'messageText' => $data['messageText']
                     ], 
 
                     function (Message $message) use ($data){
