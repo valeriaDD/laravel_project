@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Comment;
+use App\Services\ModelLogger;
+use Psr\Log\LoggerInterface;
 
 class ArticleController extends Controller
 {
@@ -17,9 +20,15 @@ class ArticleController extends Controller
      * @return Illuminate\Http\Response;
      */
 
-    public function show($id)
+    public function show($id, Request $request, ModelLogger $logger)
     {
-        return view('NoutatiPage.noutatePage')
-                    ->with('article', Article::where('id', $id)->first());
+
+        $article = Article::where('id', $id)->first();
+    
+
+        $logger->logModel($request->user(), $article);
+        
+
+        return view('NoutatiPage.noutatePage', compact('article'));
     }
 }
