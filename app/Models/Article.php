@@ -8,8 +8,9 @@ use App\Models\Comment;
 use App\Models\User;
 use App\Models\BlogCategory;
 use App\Models\BlogTag;
+use Psr\Log\LoggerInterface;
 
-class Article extends Model
+class Article extends Model implements LoggerInterface
 {
     use HasFactory;
     protected $fillable = [
@@ -42,5 +43,19 @@ class Article extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function convetToLoggableString(): string {
+
+        return "Article with id $this->id";
+
+    }
+
+     public function getData()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title
+        ];
     }
 }
