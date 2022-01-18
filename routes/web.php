@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\contactController;
 
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +19,24 @@ use App\Http\Controllers\contactController;
 |
 */
 
+// Home Page
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
-// Send Contact 
-Route::get('/', 'App\Http\Controllers\contactController@sendContact');
+//Blog Page
+Route::get('/blog', [BlogController::class, 'index'])->name('noutati');
 
-// Show Controller
-Route::get('/contact', 'App\Http\Controllers\contactController@showContact' );
+//Article Page
+Route::get('/blog/{id}', 'App\Http\Controllers\ArticleController@show')->name('article');
+
+//Services Page
+Route::get('/services', 'App\Http\Controllers\ServicesController@index')->name('services');
+
+//Services Page with a specific service displayed
+Route::get('/services/{id}', 'App\Http\Controllers\ServicesController@show_product')->name('services_id');
+
+//Contact Page
+Route::get('/contacts', 'App\Http\Controllers\ContactsController@index')->name('contacts');
+
+//Appointment Page
+Route::get('/appointment', 'App\Http\Controllers\AppointmentController@index')->name('appointment');
+
