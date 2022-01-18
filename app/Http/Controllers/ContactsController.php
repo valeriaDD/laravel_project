@@ -21,13 +21,7 @@ class ContactsController extends Controller
         
         \Log::debug('test',$data);
 
-        \Mail::send('Emails.ContactUs',
-                    [
-                        'email' => $data['email'],
-                        'name' => $data['name'],
-                        'gender' => $data['gender'],
-                        'messageText' => $data['messageText']
-                    ], 
+        \Mail::send('Emails.ContactUs', $data, 
 
                     function (Message $message) use ($data){
  
