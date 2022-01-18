@@ -6,7 +6,7 @@ use App\Http\Controllers\contactController;
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Middleware\LogActivityMidlewear;
 
 /*
 |--------------------------------------------------------------------------
