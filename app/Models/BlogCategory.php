@@ -12,11 +12,12 @@ class BlogCategory extends Model
     protected $fillable = [
         'name',
         'description',
-        'seo_name',
+        'seo_title',
         'seo_description',
     ];
 
-    public function articles(){
-        return $this->belongsToMany(BlogTag::class);
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
     }
 }

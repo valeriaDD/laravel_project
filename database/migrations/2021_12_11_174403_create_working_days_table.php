@@ -18,7 +18,6 @@ class CreateWorkingDaysTable extends Migration
             $table->foreignId('day_id')->constrained('days')->cascadeOnUpdate()->cascadeOnDelete();
             $table->time('start_time');
             $table->time('end_time');
-            $table->timestamps();
         });
     }
 

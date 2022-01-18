@@ -14,7 +14,7 @@ class AlterClientsServicesAddColumnDescription extends Migration
     public function up()
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->text('description')->nullable('false');
+            $table->text('description')->nullable(false);
         });
     }
 

@@ -27,6 +27,9 @@ class AlterKinetotherapistColumnLength extends Migration
      */
     public function down()
     {
-        //nonessential rollback
+        Schema::table('kinetotherapists', function (Blueprint $table) {
+            $table->string('name',12)->change();
+            $table->string('surname',12)->change();
+        });
     }
 }

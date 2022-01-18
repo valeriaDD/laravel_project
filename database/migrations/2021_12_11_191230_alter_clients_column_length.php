@@ -26,6 +26,9 @@ class AlterClientsColumnLength extends Migration
      */
     public function down()
     {
-        //nonessential rollback
+        Schema::table('clients', function (Blueprint $table) {
+            $table->string('name',50)->change();
+            $table->string('surname',50)->change();
+        });
     }
 }
