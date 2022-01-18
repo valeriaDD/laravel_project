@@ -18,13 +18,8 @@ class ContactUsMailer{
     
     public function send(array $data):void
     {
-        $this->infrastructureMailer->send('Emails.ContactUs',
-                    [
-                        'email' => $data['email'],
-                        'name' => $data['name'],
-                        'gender' => $data['gender'],
-                        'messageText' => $data['messageText']
-                    ], 
+        $this->infrastructureMailer->send('Emails.ContactUs',$data,
+                
 
                     function (Message $message) use ($data){
  
@@ -32,6 +27,6 @@ class ContactUsMailer{
                              $message->to('tech@lotus.app');
                              $message->from('dontReply@lotus.app', 'Lotus');
         });
-        $this->logger->info('Contact us Mail: A user have sent you a message!');
+        $this->logger->info('A mail from dontReply@lotus.app to tech@lotus.app : A user have sent you a message!');
     }
 }
