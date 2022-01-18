@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'title',
         'description',
@@ -19,6 +20,7 @@ class Article extends Model
         'seo_title',
         'seo_description',
     ];
+
 
     public function category()
     {
