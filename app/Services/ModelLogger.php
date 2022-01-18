@@ -18,7 +18,6 @@ class ModelLogger
 
     public function logModel(?User $user, LoggableInterface $loggable): void
     {
-
         $this->logger->info(
             $this->identifyUserRepresentation($user) . 'acessed' . $loggable->convertToLoggableString(),
             $loggable->getData(),

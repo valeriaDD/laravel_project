@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Services;
-use Request;
+use Illuminate\Http\Request;
 
-
-interface requestActivityLogger{
+interface RequestActivityLoggerInterface{
     
     public function logRequest(Request $request, string $type):void;
 }

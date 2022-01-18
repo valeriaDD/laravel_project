@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use Request;
+use Illuminate\Http\Request;
 
 class DummyRequestActivityLogger extends AbstractRequestActivityLogger{
     
-    protected function collectRequest(Request $request): array
+    protected function collectRequestData(Request $request): array
     {
         return ['any data'];
     }
