@@ -9,8 +9,8 @@
             <div class="container">
                 <div class="d-flex justify-content-center ">
                     
-                    @include('ServiciiPage.navServicii')
-                    @include('ServiciiPage.cardServicii')
+                    @include('ServiciiPage.navServicii', ['allServices' => $allServices])
+                    @include('ServiciiPage.cardServicii', ['service' => $service])
                     
                 </div>
             </div>
