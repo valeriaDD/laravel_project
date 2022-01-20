@@ -56,36 +56,40 @@ class RussianRouletteCommand extends Command
         $detailedStatistic = $this->cacheRepository->get('detailedStatistic', []);
 
         $randNr = rand(1,6);
+
         $whoStarts = rand(1,2);
         // 1 - Computer
         // 2 - Human
 
-        if( ($randNr % 2 == 0) && ($whoStarts == 1) ){
-            $statistic["Human"]++;
-            $this->line("Coputer started and bullet place: {$randNr}");
-            $this->error("Human is DEAD!");
-            $detailedStatistic[] = ["Computer", $randNr, "Human"];
-        }
-               
-        else if( ($randNr % 2 != 0) && ($whoStarts == 2) ){
-            $statistic["Human"]++;
-            $this->line("Human started and bullet place: {$randNr}");
-            $this->error("Human is DEAD!");  
-            $detailedStatistic[] = ["Human", $randNr, "Human"];
-        }
-            
-        else if ($whoStarts == 1){
-            $statistic["Computer"]++;
-            $this->line("Coputer started and bullet place: {$randNr}");
-            $this->info("Human is ALIVE!"); 
-            $detailedStatistic[] = ["Computer", $randNr, "Computer"];
-        }
-        else{
-            $statistic["Computer"]++;
-            $this->line("Human started and bullet place: {$randNr}");
-            $this->info("Human is ALIVE!"); 
-            $detailedStatistic[] = ["Human", $randNr, "Computer"];
-        }
+        switch ($whoStarts) {
+            case 1:
+                if($randNr % 2 == 0){
+                    $this->error("Human is DEAD! Computer started and bullet place: {$randNr}");
+                    $detailedStatistic[] = ["Computer", $randNr, "Human"];
+                    $statistic["Human"]++;
+                }
+                else{
+                    $statistic["Computer"]++;
+                    $this->info("Human is ALIVE! Coputer started and bullet place: {$randNr}"); 
+                    $detailedStatistic[] = ["Computer", $randNr, "Computer"];
+                }
+              break;
+            case 2:
+                if($randNr % 2 != 0){
+                    $statistic["Human"]++;
+                    $this->error("Human is DEAD! Human started and bullet place: {$randNr}");  
+                    $detailedStatistic[] = ["Human", $randNr, "Human"];
+                }
+                else{
+                    $statistic["Computer"]++;
+                    $this->info("Human is ALIVE! Human started and bullet place: {$randNr}"); 
+                    $detailedStatistic[] = ["Human", $randNr, "Computer"];
+                }
+   
+              break;
+            default:
+            $this->line("Something is wrong");
+          }
 
         $this->cacheRepository->set('Statistic', $statistic, 86400);
         $this->cacheRepository->set('detailedStatistic', $detailedStatistic, 86400);
