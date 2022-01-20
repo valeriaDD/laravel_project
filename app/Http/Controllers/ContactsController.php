@@ -22,6 +22,7 @@ class ContactsController extends Controller
 
         $mailer->send($data);
 
+
         return redirect()->route('contacts')->withInput($data);
     }
 }
