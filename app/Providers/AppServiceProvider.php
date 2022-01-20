@@ -13,13 +13,18 @@ class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
      * @return void
      */
     public function register()
     {
+        
         $this->app->bind(RequestActivityLoggerInterface::class, function(){
-            return $this->app->make(RequestActivityLoggerInterface::class);
+
+            if (\App::environment() == "local"){
+                return $this->app->make(DebugRequestActivityLogger::class);
+            }
+            else
+                return $this->app->make(ProductionRequestActivityLogger::class);
         });
     }
 

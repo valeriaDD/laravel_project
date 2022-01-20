@@ -2,30 +2,22 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\DummyRequestActivityLogger;
-use App\Services\DebugRequestActivityLogger;
-use App\Services\ProductionRequestActivityLogger;
+use App\Services\RequestActivityLoggerInterface;
 use Closure;
 use Illuminate\Http\Request;
 
 
 class LogActivityMiddleware {
 
-    private DummyRequestActivityLogger $logger;
+    private RequestActivityLoggerInterface $logger;
 
     /**
-     * @param DummyRequestActivityLogger $logger;
-     * @param DebugRequestActivityLogger $loggerDebug;
-     * @param ProductionRequestActivityLogger $loggerProduction;
+     * @param RequestActivityLoggerInterface $logger;
      */
 
-    public function __construct(DummyRequestActivityLogger $logger,
-                                DebugRequestActivityLogger $loggerDebug,
-                                ProductionRequestActivityLogger $loggerProduction)
+    public function __construct(RequestActivityLoggerInterface $logger)
     {
         $this->logger = $logger;
-        $this->loggerDebug = $loggerDebug;
-        $this->loggerProduction = $loggerProduction;
         
     }
     
@@ -38,8 +30,6 @@ class LogActivityMiddleware {
     public function handle( $request, Closure $next, ?string $type = null){
         
         $this->logger->logRequest($request, $type ?? 'unknown page');
-        $this->loggerDebug->logRequest($request, $type ?? 'unknown page');
-        $this->loggerProduction->logRequest($request, $type ?? 'unknown page');
 
         return $next($request);
     
