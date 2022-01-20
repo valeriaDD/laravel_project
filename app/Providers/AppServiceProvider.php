@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(RequestActivityLoggerInterface::class, function(){
-            return $this->app->make(ProductionRequestActivityLogger::class);
+            return $this->app->make(RequestActivityLoggerInterface::class);
         });
     }
 
