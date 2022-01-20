@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Request\ContactsRequest;
+use App\Services\ContactUsMailer;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Mail\Message;
 
 
 class ContactsController extends Controller
@@ -14,23 +13,16 @@ class ContactsController extends Controller
         return view('ContactPage.contactPage');
     }
 
-    public function send(ContactsRequest $request): RedirectResponse
+    public function send(ContactsRequest $request, ContactUsMailer $mailer): RedirectResponse
     {
 
         $data = $request->validated();
         
         \Log::debug('test',$data);
 
-        \Mail::send('Emails.ContactUs',$data, 
+        $mailer->send($data);
 
-                    function (Message $message) use ($data){
- 
-                             $message->subject('User Message ' . $data['email']);
-                             $message->to('tech@lotus.app');
-                             $message->from('dontReply@lotus.app', 'Lotus');
-        });
-        
 
-        return redirect()->route('contacts');
+        return redirect()->route('contacts')->withInput($data);
     }
 }
