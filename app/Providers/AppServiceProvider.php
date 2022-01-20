@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\DummyRequestActivityLogger;
 use App\Services\DebugRequestActivityLogger;
+use App\Services\ProductionRequestActivityLogger;
 use App\Services\RequestActivityLoggerInterface;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -18,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(RequestActivityLoggerInterface::class, function(){
-            return $this->app->make(DebugRequestActivityLogger::class);
+            return $this->app->make(ProductionRequestActivityLogger::class);
         });
     }
 
