@@ -50,22 +50,22 @@ class CacheTestingCommand extends Command
 
         $this->cacheRepository->set('lastCommandVisit', date(\DateTime::ATOM), 60);
 
-        $res = $this->ask(
+        $response = $this->ask(
             "Do you know that the app is running in {$this->configRepository->get('app.env')} mode"
         );
 
-        $stats = $this->cacheRepository->get('knowAnswer', []);
-        $stats[$res] = $stats[$res] ?? 0;
-        $stats[$res]++;
+        $statistics = $this->cacheRepository->get('knowAnswer', []);
+        $statistics[$response] = $statistics[$response] ?? 0;
+        $statistics[$response]++;
 
         $table = [];
 
-        foreach ($stats as $key => $count) {
+        foreach ($statistics as $key => $count) {
             $table[] = [$key, $count];
         }
 
         $this->table(['answer', 'count'], $table);
 
-        $this->cacheRepository->set('knowAnswer', $stats);
+        $this->cacheRepository->set('knowAnswer', $statistics);
     }
 }
