@@ -1,4 +1,3 @@
-
 @extends('layouts.layout')
 
 
@@ -19,35 +18,54 @@
             <div class="col-8 align-self-center">
                 <div class="h4 text-center ">Contactati-ne!</div>
                 <div class="p text-center p-3"> Daca aveti ceva neclaritati, nu ezitati sa ne contactati! </div>
-                <form>
+                <form action="{{ route('contacts.send') }}" method="POST" name="contact-form">
                     <div class="row justify-content-center">
 
                         <div class="col-sm-4">
                             <div class="input-group mb-3">
-
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Email">
+                                @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                                <input type="email" required="required" value="{{ old('email') }}" name="email" class="form-control" id="email" placeholder="Email">
                             </div>
                         </div>
+                        
                         <div class="col-sm-4">
                             <div class="input-group mb-3">
-
-                                <input type="text" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Nume">
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <input type="text" required="required" value="{{ old('name') }}" name="name" class="form-control" id="name" placeholder="Nume">
                             </div>
+                        </div>
+
+                        <div class="col-md-8 mb-3">
+                            @error('gender')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            <select  class="form-control" name="gender">
+                                <option value="">Selecteaza genul</option>
+                                <option @if(old('gender') === 'Feminin') selected @endif value="Feminin" >Feminin</option>
+                                <option @if(old('gender') === 'Masculin') selected @endif value="Masculin" >Masculin</option>
+                                <option @if(old('gender') === 'Altele') selected @endif value="Altele" >Altele</option>
+                            </select>
                         </div>
 
                         <div class="col-md-8">
                             <div class="form-group">
                                 <input class="form-control mb-0" type="text" value="Mesaj"
                                     aria-label="Disabled input example" disabled readonly>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                    @error('messageText')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <textarea type="text" name="messageText" class="form-control" id="messageText" rows="4">{{ old('messageText') }}</textarea>
                             </div>
                         </div>
 
                         <div class="d-flex flex-row-reverse p-3">
                             <div class="col-sm-2 ">
-                                <button type="button" class="btn btn-dark" id="submit">Send</button>
+                                @csrf
+                                <button type="submit" class="btn btn-dark">Send</button>
                             </div>
                         </div>
 
