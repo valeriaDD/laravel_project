@@ -20,10 +20,10 @@ class AppServiceProvider extends ServiceProvider
         
         $this->app->bind(RequestActivityLoggerInterface::class, function(){
 
-            if (\App::environment() == "local"){
+            if ( strtolower(\App::environment()) == "local"){
                 return $this->app->make(DebugRequestActivityLogger::class);
             }
-            else
+            else if(strtolower(\App::environment()) == "production")
                 return $this->app->make(ProductionRequestActivityLogger::class);
         });
     }
