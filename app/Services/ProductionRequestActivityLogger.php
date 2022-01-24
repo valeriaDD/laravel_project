@@ -12,7 +12,10 @@ class ProductionRequestActivityLogger extends AbstractRequestActivityLogger{
         return [
             'ip' => $request->ip(),         // ip request to understand where our website is more popular
             'date-time' => Carbon::now(),   // date time - to know when our website is accessed the most
-            'gender' => $request->gender    // gender - to understand who are moreinterested parties 
+            'method' => $request->getMethod(),                       // Method used in request 
+            'uri' => $request->getRequestUri(),                      // Where the request was initiated 
+            'email' => $request->email,
+            'gender' => $request->gender,                            // Request info
         ];
     }
 
