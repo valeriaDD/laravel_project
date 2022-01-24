@@ -25,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
             }
             else if(strtolower(\App::environment()) == "production")
                 return $this->app->make(ProductionRequestActivityLogger::class);
+            else
+                return $this->app->make(DummyRequestActivityLogger::class);
         });
     }
 
