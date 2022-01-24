@@ -26,7 +26,8 @@ class Service extends Model implements LoggableInterface
 
     public function convertToLoggableString():string{
 
-        return "User accessed a service with id: $this->id"; 
+        return "Service with id: $this->id"; 
+    
     }
 
     public function getData():array{
