@@ -13,7 +13,7 @@ class RussianRouletteStatisticCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'russian-roulette-statistic';
+    protected $signature = 'russian-roulette:statistic';
 
     /**
      * The console command description.
@@ -40,18 +40,25 @@ class RussianRouletteStatisticCommand extends Command
      */
     public function handle()
     {
-        $statistic = $this->cacheRepository->get('Statistic', []);
-        $detailedStatistic = $this->cacheRepository->get('detailedStatistic', []);
-
-        $statistic["Computer"] = $statistic["Computer"] ?? 0;
-        $statistic["Human"] = $statistic["Human"] ?? 0;
+        $statistics = $this->cacheRepository->get('Statistic', []);
+        $detailedStatistics = $this->cacheRepository->get('detailedStatistic', []);
+        $bulletStatistics = $this->cacheRepository->get('bulletPlace',[]);
+        
         $table = [];
+        $table2 = [];
 
-        foreach ($statistic as $key => $count) {
+        foreach ($statistics as $key => $count) {
             $table[] = [$key, $count];
         }
-        
+
+        foreach ($bulletStatistics as $key => $count) {
+            $table2[] = [$key, $count];
+        }
+
+
+        $this->table(['Bullet Place', 'Nr of times'], $table2);
         $this->table(['Player', 'Nr of deaths'], $table);
-        $this->table(['Who Started', 'Bullet Place', "Who Died"], $detailedStatistic);
+        $this->table(['Who Started', 'Bullet Place', "Who Died"], $detailedStatistics);
+        
     }
 }

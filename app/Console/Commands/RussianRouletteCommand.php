@@ -43,17 +43,20 @@ class RussianRouletteCommand extends Command
     public function handle()
     {
         $this->line('Game: Russian Roulette!'); //Starting information
-        $this->line("The bullet is inserted into a random place in a revolver");
-        $this->line("You will take turns playing with computer shuting in yourself");
-        $this->line("The one who starts is asigned also randomly");
-        // $this->line("See todays statistic of deaths bellow:");
+        $this->line("A player places a single round in a revolver, spins the cylinder,");
+        $this->line("places the muzzle against the head or body and pulls the trigger");
+        $this->line("If the loaded chamber aligns with the barrel, the weapon will fire,  killing the player.");
+        $this->line("Each of the players will take turns shooting once - untill someone loses the game");
+        $this->line("Now you will play with the computer - who starts is assigned randomly");
 
         $this->line("Let's see who dies this time!");
         $response = $this->confirm('Do you wish to continue? [yes|no]');
 
         if($response){
-        $statistic = $this->cacheRepository->get('Statistic', []);
-        $detailedStatistic = $this->cacheRepository->get('detailedStatistic', []);
+
+        $statistics = $this->cacheRepository->get('Statistic', []);
+        $detailedStatistics = $this->cacheRepository->get('detailedStatistic', []);
+        $bulletStatistics= $this->cacheRepository->get('bulletPlace',[]);
 
         $randNr = rand(1,6);
 
@@ -61,38 +64,47 @@ class RussianRouletteCommand extends Command
         // 1 - Computer
         // 2 - Human
 
+        $statistics["Computer"] = $statistics["Computer"] ?? 0;
+        $statistics["Human"] = $statistics["Human"] ?? 0;
+        $bulletStatistics[$randNr] = $bulletStatistics[$randNr] ?? 0;
+
         switch ($whoStarts) {
             case 1:
                 if($randNr % 2 == 0){
                     $this->error("Human is DEAD! Computer started and bullet place: {$randNr}");
-                    $detailedStatistic[] = ["Computer", $randNr, "Human"];
-                    $statistic["Human"]++;
+                    $detailedStatistics[] = ["Computer", $randNr, "Human"];
+                    $statistics["Human"]++;
+                    $bulletStatistics[$randNr]++;
                 }
                 else{
-                    $statistic["Computer"]++;
+                    $statistics["Computer"]++;
                     $this->info("Human is ALIVE! Coputer started and bullet place: {$randNr}"); 
-                    $detailedStatistic[] = ["Computer", $randNr, "Computer"];
+                    $detailedStatistics[] = ["Computer", $randNr, "Computer"];
+                    $bulletStatistics[$randNr]++;
                 }
               break;
             case 2:
                 if($randNr % 2 != 0){
-                    $statistic["Human"]++;
+                    $statistics["Human"]++;
                     $this->error("Human is DEAD! Human started and bullet place: {$randNr}");  
-                    $detailedStatistic[] = ["Human", $randNr, "Human"];
+                    $detailedStatistics[] = ["Human", $randNr, "Human"];
+                    $bulletStatistics[$randNr]++;
                 }
                 else{
-                    $statistic["Computer"]++;
+                    $statistics["Computer"]++;
                     $this->info("Human is ALIVE! Human started and bullet place: {$randNr}"); 
-                    $detailedStatistic[] = ["Human", $randNr, "Computer"];
+                    $detailedStatistics[] = ["Human", $randNr, "Computer"];
+                    $bulletStatistics[$randNr]++;
                 }
    
               break;
             default:
-            $this->line("Something is wrong");
+                throw new \LogicException;
           }
 
-        $this->cacheRepository->set('Statistic', $statistic, 86400);
-        $this->cacheRepository->set('detailedStatistic', $detailedStatistic, 86400);
+        $this->cacheRepository->set('bulletPlace',$bulletStatistics,86400);
+        $this->cacheRepository->set('Statistic', $statistics, 86400);
+        $this->cacheRepository->set('detailedStatistic', $detailedStatistics, 86400);
     }
     else
         $this->line("See you next time");
