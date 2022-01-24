@@ -34,7 +34,8 @@ class Service extends Model implements LoggableInterface
         return[
             'id' => $this->id,
             'abbreviation' => $this->abbreviation,
-            'name' => $this->name
+            'name' => $this->name,
+            'price' => $this->price
         ];
     }
 
