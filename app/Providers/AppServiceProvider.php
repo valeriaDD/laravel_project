@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Services\DummyRequestActivityLogger;
 use App\Services\DebugRequestActivityLogger;
 use App\Services\ProductionRequestActivityLogger;
 use App\Services\RequestActivityLoggerInterface;
@@ -20,13 +19,11 @@ class AppServiceProvider extends ServiceProvider
         
         $this->app->bind(RequestActivityLoggerInterface::class, function(){
 
-            if ( strtolower(\App::environment()) == "local"){
-                return $this->app->make(DebugRequestActivityLogger::class);
-            }
-            else if(strtolower(\App::environment()) == "production")
+            if ( strtolower(\App::environment()) == "production")
                 return $this->app->make(ProductionRequestActivityLogger::class);
-            else
-                return $this->app->make(DummyRequestActivityLogger::class);
+            else 
+                return $this->app->make(DebugRequestActivityLogger::class);
+           
         });
     }
 
