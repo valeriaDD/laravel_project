@@ -14,10 +14,9 @@ class DebugRequestActivityLogger extends AbstractRequestActivityLogger{
             'method' => $request->getMethod(),                       // Method used in request 
             'uri' => $request->getRequestUri(),                      // Where the request was initiated 
             'executionTime' => microtime(true) - LARAVEL_START,      // Total execution time
-            'email' => $request->email,
-            'name' => $request->name,
-            'gender' => $request->gender,                            // Request info
-            'messageText' => $request->messageText,
+            'secured' => $request->secure(),
+            'data' => $request->all(),
+            'requestHeader' => $request->header()
         ];
     }
 
