@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Service extends Model implements LoggableInterface
 {
     use HasFactory;
@@ -22,16 +23,20 @@ class Service extends Model implements LoggableInterface
         return $this->hasMany(Appointment::class, 'service_id');
     }
 
+
     public function convertToLoggableString():string{
 
-        return "User accessed a service with id: $this->id"; 
+        return "Service with id: $this->id"; 
+    
     }
 
     public function getData():array{
         return[
             'id' => $this->id,
             'abbreviation' => $this->abbreviation,
-            'name' => $this->name
+            'name' => $this->name,
+            'price' => $this->price
         ];
     }
+
 }

@@ -13,6 +13,7 @@ use Psr\Log\LoggerInterface;
 class Article extends Model implements LoggableInterface
 {
     use HasFactory;
+
     protected $fillable = [
         'title',
         'description',
@@ -24,6 +25,7 @@ class Article extends Model implements LoggableInterface
         'seo_title',
         'seo_description',
     ];
+
 
     public function category()
     {

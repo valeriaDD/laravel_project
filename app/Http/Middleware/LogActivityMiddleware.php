@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
+
 use App\Services\RequestActivityLoggerInterface;
+
 use Closure;
 use Illuminate\Http\Request;
 
@@ -19,6 +21,7 @@ class LogActivityMiddleware {
     {
         $this->logger = $logger;
         
+
     }
     
     /**

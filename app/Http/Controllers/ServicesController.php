@@ -18,7 +18,7 @@ class ServicesController extends Controller
 
         $allServices =  Service::all();
 
-        $service = Service::where('id', $id)->first();
+        $service = Service::findOrFail($id);
 
         $logger->logModel($request->user(), $service);
 

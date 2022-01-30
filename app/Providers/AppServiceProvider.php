@@ -15,8 +15,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {
-        
+    {   
         $this->app->bind(RequestActivityLoggerInterface::class, function(){
 
             if ( strtolower(\App::environment()) == "production")
@@ -25,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
                 return $this->app->make(DebugRequestActivityLogger::class);
            
         });
+
     }
 
     /**

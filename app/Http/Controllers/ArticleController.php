@@ -23,7 +23,7 @@ class ArticleController extends Controller
     public function show($id, Request $request, ModelLogger $logger)
     {
 
-        $article = Article::where('id', $id)->first();
+        $article = Article::findOrFail($id);
     
 
         $logger->logModel($request->user(), $article);
