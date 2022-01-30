@@ -12,7 +12,7 @@ class Address extends Model
     protected $table = 'addresses';
 
     protected $primaryKey = 'kinetotherapist_id';
-    protected $incrementing = false;
+    public $incrementing = false;
 
     protected $fillable = [
         'kinetotherapist_id',

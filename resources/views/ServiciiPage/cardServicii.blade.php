@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="col-4 ">
-                    <a href="{{ route('appointment') }}"  type="submit" id='myButton2' class="btn btn-outline-secondary"> Programeaza-te </a>
+                    <a href="/appointments/{{ $service->id }}"  type="submit" id='myButton2' class="btn btn-outline-secondary"> Programeaza-te </a>
                 </div>
 
             </div>

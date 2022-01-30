@@ -28,9 +28,6 @@ Route::get('/blog', [BlogController::class, 'index'])->name('noutati');
 //Article Page
 Route::get('/blog/{id}', 'App\Http\Controllers\ArticleController@show')->name('article');
 
-//Services Page
-Route::get('/services', 'App\Http\Controllers\ServicesController@index')->name('services');
-
 //Services Page with a specific service displayed
 Route::get('/services/{id}', 'App\Http\Controllers\ServicesController@show_product')->name('services_id');
 
@@ -39,5 +36,6 @@ Route::get('/contacts', 'App\Http\Controllers\ContactsController@index')->name('
 Route::post('/contactUs', 'App\Http\Controllers\ContactsController@send')->name('contacts.send')->middleware('log.activity:sendContacts');
 
 //Appointment Page
-Route::get('/appointment', 'App\Http\Controllers\AppointmentController@index')->name('appointment');
+Route::get('/appointments/{id}', 'App\Http\Controllers\AppointmentController@index')->name('appointment');
+Route::post('/makeAppointment', 'App\Http\Controllers\AppointmentController@send')->name('appointment.send');
 

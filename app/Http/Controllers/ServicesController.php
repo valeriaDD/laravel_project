@@ -6,6 +6,7 @@ use App\Models\Service;
 use App\Services\ModelLogger;
 use Illuminate\Http\Request;
 
+
 class ServicesController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class ServicesController extends Controller
 
     public function show_product($id, Request $request ,ModelLogger $logger) {
 
-        $allServices =  Service::all();
+        $allServices =  Service::select('name', 'id')->get();
 
         $service = Service::findOrFail($id);
 
