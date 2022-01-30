@@ -6,7 +6,7 @@ use App\Http\Controllers\contactController;
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Middleware\LogActivityMiddlewear;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ Route::get('/services/{id}', 'App\Http\Controllers\ServicesController@show_produ
 
 //Contact Page
 Route::get('/contacts', 'App\Http\Controllers\ContactsController@index')->name('contacts');
-Route::post('/contactUs', 'App\Http\Controllers\ContactsController@send')->name('contacts.send');
+Route::post('/contactUs', 'App\Http\Controllers\ContactsController@send')->name('contacts.send')->middleware('log.activity:sendContacts');
 
 //Appointment Page
 Route::get('/appointment', 'App\Http\Controllers\AppointmentController@index')->name('appointment');
