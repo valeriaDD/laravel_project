@@ -29,7 +29,7 @@
                 </div>
             @endif
 
-        <form action="{{ route('appointment.send') }}" method="POST" name="appointment-form">
+        <form action="{{ route('appointment.store', $service->id) }}" method="POST" name="appointment-form">
             @csrf
 
             <div class="row justify-content-md-center p-3">
@@ -57,10 +57,10 @@
 
             <div class="row justify-content-md-center p-3">
                 <div class="col-6 d-flex ">
-                    <select name="kinetotherapeut_id" class="form-select" title="Choose one of the following...">
+                    <select name="kinetotherapist_id" class="form-select" title="Choose one of the following...">
                         <option value="all">Oricare</option>
                         @foreach ($kinetotherapeut as $choosen)
-                            <option value="{{ $choosen->id }}" {{ (collect(old('kinetotherapeut_id'))->contains($choosen->id)) ? 'selected':'' }}>{{ $choosen->name }} {{ $choosen->surname }} 
+                            <option value="{{ $choosen->id }}" {{ (collect(old('kinetotherapist_id'))->contains($choosen->id)) ? 'selected':'' }}>{{ $choosen->name }} {{ $choosen->surname }} 
                             </option>
                         @endforeach
                     </select>
@@ -69,12 +69,11 @@
 
             <div class="row justify-content-md-center p-3">
                 <div class="col-3 d-flex ">
-                    <input value="{{ old('data') }}" name="data" type="date" class="datepicker_input form-control">
+                    <input value="{{ old('date') }}" name="date" type="date" class="datepicker_input form-control">
                 </div>
 
                 <div class="col-3 d-flex ">
-                    <input value="{{ old('start_time') }}" name="start_time" type="time" class='form-control timepicker' min="09:00" max="19:00"
-                        required>
+                    <input value="{{ old('start_time') }}" name="start_time" step="2" type="time" class='form-control timepicker' required>
                 </div>
 
 

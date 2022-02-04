@@ -9,12 +9,14 @@ class Appointment extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $table = 'appointments';
     protected $fillable = [
         'client_id',
         'kinetotherapist_id',
         'service_id',
-        'data',
+        'date',
         'start_time',
     ];
 

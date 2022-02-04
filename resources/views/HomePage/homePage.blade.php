@@ -17,7 +17,7 @@
                             dignissim a
                             lacus ac bibendum.
                         </p>
-                        <a href="{{ url('/appointment/1') }}"   type="button" id="myButton2" class="btn btn-light mt-3">Consultatie Gratuita!</a>
+                        <a href="{{ url('/appointments/1') }}"   type="button" id="myButton2" class="btn btn-light mt-3">Consultatie Gratuita!</a>
                     </div>
                 </div>
 
