@@ -7,10 +7,10 @@ use App\Models\Kinetotherapeut;
 use App\Http\Request\AppointmentRequest;
 use App\Models\Appointment;
 use App\Models\Client;
-use Illuminate\Http\Response as Response;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Services\AppointmentMailer;
 
 
 
@@ -25,24 +25,12 @@ class AppointmentController extends Controller
         return view('AppointmentsPage.programeazaPage', compact('allServices', 'service', 'kinetotherapeut'));
     }
 
-    public function send(AppointmentRequest $request): RedirectResponse
-    {
 
-        $data = $request->validated();
-        \Log::debug('test',$data);
+    public function store(Service $id, AppointmentRequest $request, AppointmentMailer $mailer){
 
-        return redirect()->back();
-    }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     * 
-     */
-    public function store(Service $id, Request $request){
-        
         $client = Client::create($request->only(['name', 'surname', 'phone', 'email']));
 
-        $appointment = Appointment::create($request->only(['kinetotherapist_id', 'service_id', 'date', 'start_time']));
+        $appointment = Appointment::create($request->only(['kinetotherapist_id', 'date', 'start_time']));
 
         $appointment->client_id = $client->id;
         $appointment->service_id = $id->id;
@@ -56,7 +44,15 @@ class AppointmentController extends Controller
 
         $appointment->save();  
 
-        // dd($request->appointment->client_id);
+        $data = $request->validated();
+        $data["service_end_time"] = $appointment->end_time;
+        $data["service_name"] = $id->name;
+        $data["client_id"] = $client->id;
+
+
+        $mailer->send($data);
+    
+
         return redirect()->back();
     }
 }

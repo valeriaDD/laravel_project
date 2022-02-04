@@ -18,8 +18,8 @@ class AppointmentRequest extends FormRequest
             'surname' => ['required', 'string', 'min:2' ],
             'email' => ['required', 'string', 'email', 'min:5'],
             'phone' => ['required','numeric' ],
-            'kinetotherapeut_id' => ['required', 'exists:kinetotherapists,id'],
-            'data' => ['required'],
+            'kinetotherapist_id' => ['required', 'exists:kinetotherapists,id'],
+            'date' => ['required'],
             'start_time' => ['required'],
         ];
     }

@@ -37,5 +37,4 @@ Route::post('/contactUs', 'App\Http\Controllers\ContactsController@send')->name(
 
 //Appointment Page
 Route::get('/appointments/{id}', 'App\Http\Controllers\AppointmentController@index')->name('appointment');
-Route::post('/appointment/send_email', 'App\Http\Controllers\AppointmentController@send')->name('appointment.send');
 Route::post('/appointment/{id}/store', 'App\Http\Controllers\AppointmentController@store')->name('appointment.store');
