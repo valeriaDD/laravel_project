@@ -5,6 +5,7 @@ use App\Http\Controllers\contactController;
 
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\api\ArticleAPIController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\LogActivityMiddlewear;
 
@@ -38,3 +39,7 @@ Route::post('/contactUs', 'App\Http\Controllers\ContactsController@send')->name(
 //Appointment Page
 Route::get('/appointments/{id}', 'App\Http\Controllers\AppointmentController@index')->name('appointment');
 Route::post('/appointment/{id}/store', 'App\Http\Controllers\AppointmentController@store')->name('appointment.store');
+
+
+// APIs
+Route::put('/api/articles/{id}', 'App\Http\Controllers\api\ArticleAPIController@updateArticle');
