@@ -4,9 +4,10 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use App\Models\Article;
+use Illuminate\Http\Request;
 use Illuminate\Routing\ResponseFactory;
+use Illuminate\Support\Facades\Validator;
 
 class ArticleAPIController extends Controller
 {
@@ -25,13 +26,20 @@ class ArticleAPIController extends Controller
 
         $article = Article::find($id);
 
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|min:2|max:30',
+            'description' => 'required|string',
+        ]);
+ 
+        if ($validator->fails()) {
+            return $this->responseFactory->json(['message' => 'Validation Fails'], 400);
+        }
+        $validated = $validator->validated();
+
+
         if($article){
-            $article->update(array('title' => $request->input('title'),
-                                    'description' => $request->input('description'),
-                                    'image' => 'e963ea7695c2d577b8f575b1059626bb.png',
-                                    'excerpt' => $request->input('excerpt'),
-                                    'seo_title' => $request->input('seo_title'),
-                                    'seo_description' => $request->input('seo_description'),
+            $article->update(array('title' => $validated['title'],
+                                    'description' => $validated['description'],
                             ));
            
             return $this->responseFactory->json(['message' => 'updated successfully '], 200);
