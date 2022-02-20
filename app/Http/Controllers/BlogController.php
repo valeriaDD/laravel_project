@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\BlogCategory;
-use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -14,17 +13,17 @@ class BlogController extends Controller
         $sort = $request['sort'] ?? 'DESC';
 
         $category = BlogCategory::all();
-        $categories = $request['categories'] ?? $category->first()->id; 
+        $categories = $request['categories'] ?? $category->first()->id;
 
-        $articles = Article::orderBy('published_at', $sort)->paginate(4);
+        $articles = Article::orderBy('published_at', $sort)->paginate(6);
         $articles ->appends(['sort'=> $sort]) ;
 
-        
 
-        return view('NoutatiPage.noutatiPage', ['articles' => $articles, 
+
+        return view('NoutatiPage.noutatiPage', ['articles' => $articles,
                                                 'category' => $category,
-                                                'filter' => ['sort' => $sort, 
-                                                            'categories' => $categories]                                          
+                                                'filter' => ['sort' => $sort,
+                                                            'categories' => $categories]
                                                 ]);
     }
 

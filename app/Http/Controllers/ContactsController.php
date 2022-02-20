@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Request\ContactsRequest;
 use App\Services\ContactUsMailer;
 use Illuminate\Http\RedirectResponse;
+use Log;
 
 
 class ContactsController extends Controller
@@ -17,8 +18,8 @@ class ContactsController extends Controller
     {
 
         $data = $request->validated();
-        
-        \Log::debug('test',$data);
+
+        Log::debug('test',$data);
 
         $mailer->send($data);
 

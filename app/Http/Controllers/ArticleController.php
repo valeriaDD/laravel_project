@@ -15,7 +15,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * 
+     *
      * @param int $id
      * @return Illuminate\Http\Response;
      */
@@ -24,11 +24,13 @@ class ArticleController extends Controller
     {
 
         $article = Article::findOrFail($id);
-    
-
         $logger->logModel($request->user(), $article);
-        
 
         return view('NoutatiPage.noutatePage', compact('article'));
+    }
+
+    public function create()
+    {
+        return view('NoutatiPage.create');
     }
 }

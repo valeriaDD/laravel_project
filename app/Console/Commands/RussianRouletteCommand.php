@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
+use LogicException;
 
 class RussianRouletteCommand extends Command
 {
@@ -23,7 +24,7 @@ class RussianRouletteCommand extends Command
      */
     protected $description = 'Small game - see your luck! Choose a nr from 1 to 6';
 
-    
+
     /**
      * Create a new command instance.
      *
@@ -38,7 +39,7 @@ class RussianRouletteCommand extends Command
     /**
      * Execute the console command.
      * @param int $randNr;
-     * 
+     *
      */
     public function handle()
     {
@@ -78,7 +79,7 @@ class RussianRouletteCommand extends Command
                 }
                 else{
                     $statistics["Computer"]++;
-                    $this->info("Human is ALIVE! Coputer started and bullet place: {$randNr}"); 
+                    $this->info("Human is ALIVE! Coputer started and bullet place: {$randNr}");
                     $detailedStatistics[] = ["Computer", $randNr, "Computer"];
                     $bulletStatistics[$randNr]++;
                 }
@@ -86,20 +87,20 @@ class RussianRouletteCommand extends Command
             case 2:
                 if($randNr % 2 != 0){
                     $statistics["Human"]++;
-                    $this->error("Human is DEAD! Human started and bullet place: {$randNr}");  
+                    $this->error("Human is DEAD! Human started and bullet place: {$randNr}");
                     $detailedStatistics[] = ["Human", $randNr, "Human"];
                     $bulletStatistics[$randNr]++;
                 }
                 else{
                     $statistics["Computer"]++;
-                    $this->info("Human is ALIVE! Human started and bullet place: {$randNr}"); 
+                    $this->info("Human is ALIVE! Human started and bullet place: {$randNr}");
                     $detailedStatistics[] = ["Human", $randNr, "Computer"];
                     $bulletStatistics[$randNr]++;
                 }
-   
+
               break;
             default:
-                throw new \LogicException;
+                throw new LogicException;
           }
 
         $this->cacheRepository->set('bulletPlace',$bulletStatistics,86400);
@@ -108,6 +109,6 @@ class RussianRouletteCommand extends Command
     }
     else
         $this->line("See you next time");
-            
+
     }
 }
