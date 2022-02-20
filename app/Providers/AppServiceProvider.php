@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App;
 use App\Services\DebugRequestActivityLogger;
 use App\Services\ProductionRequestActivityLogger;
 use App\Services\RequestActivityLoggerInterface;
@@ -15,14 +16,14 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {   
+    {
         $this->app->bind(RequestActivityLoggerInterface::class, function(){
 
-            if ( strtolower(\App::environment()) == "production")
+            if ( strtolower(App::environment()) == "production")
                 return $this->app->make(ProductionRequestActivityLogger::class);
-            else 
+            else
                 return $this->app->make(DebugRequestActivityLogger::class);
-           
+
         });
 
     }

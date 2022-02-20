@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use DateTime;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
@@ -48,7 +49,7 @@ class CacheTestingCommand extends Command
 
         $this->info("Command called last time: {$lastVisit}");
 
-        $this->cacheRepository->set('lastCommandVisit', date(\DateTime::ATOM), 60);
+        $this->cacheRepository->set('lastCommandVisit', date(DateTime::ATOM), 60);
 
         $response = $this->ask(
             "Do you know that the app is running in {$this->configRepository->get('app.env')} mode"
