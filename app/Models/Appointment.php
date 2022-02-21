@@ -21,7 +21,7 @@ class Appointment extends Model
     ];
 
     public function kinetotherapeut(){
-        return $this->belongsTo(Kinetotherapeut::class, 'id', 'kinetotherapist_id');
+        return $this->belongsTo(Kinetotherapeut::class, 'kinetotherapist_id', 'id');
     }
 
     public function client(){

@@ -16,13 +16,12 @@ class WorkingDay extends Model
     ];
 
     public function day(){
-
         return $this->BelongsTo(Day::class, 'day_id');
     }
 
 
-    public function kinetotherapeuts(){
-
-        return $this->belongsToMany(Kinetotherapeut::class, 'kinetotherapeut_workingday');
+    public function kinetotherapeuts(): \Illuminate\Database\Eloquent\Relations\BelongsToMany{
+        return $this->belongsToMany(Kinetotherapeut::class, 'schedule',
+            'working_day_id','kinetotherapist_id');
     }
 }

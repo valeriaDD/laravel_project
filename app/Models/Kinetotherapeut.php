@@ -25,12 +25,11 @@ class Kinetotherapeut extends Model
     }
 
     public function appointments(){
-
         return $this->hasMany(Appointment::class,'kinetotherapist_id');
     }
-    
-    public function workingDays(){
 
-        return $this->belongsToMany(Kinetotherapeut::class, 'kinetotherapeut_workingday');
+    public function workingDays(): \Illuminate\Database\Eloquent\Relations\BelongsToMany{
+        return $this->belongsToMany(WorkingDay::class,
+            "schedule" ,'kinetotherapist_id', 'working_day_id');
     }
 }
