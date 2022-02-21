@@ -44,3 +44,4 @@ Route::post('/appointment/{id}/store', 'App\Http\Controllers\AppointmentControll
 
 // APIs
 Route::put('/api/articles/{id}', 'App\Http\Controllers\api\ArticleAPIController@updateArticle');
+Route::get('/api/employee/{id}', 'App\Http\Controllers\api\AppointmentApiController@getWorkingDays');
