@@ -2062,6 +2062,58 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./appointment */ "./resources/js/appointment.js");
+
+/***/ }),
+
+/***/ "./resources/js/appointment.js":
+/*!*************************************!*\
+  !*** ./resources/js/appointment.js ***!
+  \*************************************/
+/***/ (() => {
+
+var nameValue;
+var workingDaysArray = [];
+
+function getEmployeeID() {
+  document.getElementById("kinetotherapist_id").addEventListener("change", function () {
+    nameValue = document.getElementById("kinetotherapist_id").value;
+    getScheduleInfo();
+  });
+}
+
+function getScheduleInfo() {
+  if (!isNaN(parseInt(nameValue))) {
+    axios.get("http://localhost:880/api/employee/".concat(nameValue)).then(function (response) {
+      workingDaysArray = [];
+      response.data.forEach(function (obj) {
+        workingDaysArray.push(obj["day"]);
+      });
+      console.log(workingDaysArray);
+    })["catch"](function (error) {
+      // handle error
+      console.log(error);
+    }).then(disableDates);
+  }
+}
+
+function disableDates() {
+  var todayDate = new Date().toISOString().slice(0, 10);
+  flatpickr("#dateID", {
+    minDate: todayDate,
+    "disable": [function (date) {
+      return !workingDaysArray.includes(date.getDay());
+    }],
+    "locale": {
+      "firstDayOfWeek": 1 // start week on Monday
+
+    }
+  });
+  document.getElementById("dateID").setAttribute("min", todayDate);
+}
+
+getEmployeeID();
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

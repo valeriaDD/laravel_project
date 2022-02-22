@@ -57,10 +57,10 @@
 
             <div class="row justify-content-md-center p-3">
                 <div class="col-6 d-flex ">
-                    <select name="kinetotherapist_id" class="form-select" title="Choose one of the following...">
+                    <select id = "kinetotherapist_id" name="kinetotherapist_id" class="form-select" title="Choose one of the following...">
                         <option value="all">Oricare</option>
                         @foreach ($kinetotherapeut as $choosen)
-                            <option value="{{ $choosen->id }}" {{ (collect(old('kinetotherapist_id'))->contains($choosen->id)) ? 'selected':'' }}>{{ $choosen->name }} {{ $choosen->surname }} 
+                            <option value="{{ $choosen->id }}" {{ (collect(old('kinetotherapist_id'))->contains($choosen->id)) ? 'selected':'' }}>{{ $choosen->name }} {{ $choosen->surname }}
                             </option>
                         @endforeach
                     </select>
@@ -69,7 +69,7 @@
 
             <div class="row justify-content-md-center p-3">
                 <div class="col-3 d-flex ">
-                    <input value="{{ old('date') }}" name="date" type="date" class="datepicker_input form-control">
+                    <input id = "dateID" type="text" value="{{ old('date') }}" name="date" >
                 </div>
 
                 <div class="col-3 d-flex ">
@@ -88,12 +88,12 @@
                         <button type="submit" class="btn btn-light"> Rezerva </button>
                     </div>
 
-
-
                 </div>
             </div>
         </form>
         {{-- END Appointment making form --}}
 
     </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </div>
