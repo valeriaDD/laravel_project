@@ -45,7 +45,7 @@
 
                     <div class="h3">Comentarii:</div>
 
-                  
+
                     <div class="d-flex flex-column comment-section">
                         @if (count($article->comments) != 0)
                             @foreach ($article->comments as $comment)
@@ -56,12 +56,12 @@
                         @endif
                     </div>
 
-                   
+
                         {{-- @include('NoutatiPage.blogComments') --}}
-                   
+
 
                     <div class="p-2 mb-3">
-                        @include('NoutatiPage.writeComment')
+                        @include('NoutatiPage.writeComment',compact('article'))
                     </div>
 
                 </div>

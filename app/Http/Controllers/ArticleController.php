@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Request\ArticlesCommentRequest;
+use App\Models\Comment;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\Article;
-use App\Models\Comment;
 use App\Services\ModelLogger;
-use Psr\Log\LoggerInterface;
+
 
 class ArticleController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('');
     }
 
@@ -33,5 +36,16 @@ class ArticleController extends Controller
     public function create()
     {
         return view('NoutatiPage.create');
+    }
+
+    public function createComment($id, ArticlesCommentRequest $request)
+    {
+        $comment = new Comment;
+        $comment->author_email = $request->author_email;
+        $comment->message = $request->messageText;
+        $comment->article_id = $id;
+
+        $comment->save();
+        return redirect()->back();
     }
 }

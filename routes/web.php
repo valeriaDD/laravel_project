@@ -29,6 +29,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('noutati');
 //Article Page
 Route::get('/blog/{id}', 'App\Http\Controllers\ArticleController@show')->name('article');
 Route::get('/blog/article/create', 'App\Http\Controllers\ArticleController@create');
+Route::post('/blog/{id}/post-comment', 'App\Http\Controllers\ArticleController@createComment')->name('comment.store');
 
 //Services Page with a specific service displayed
 Route::get('/services/{id}', 'App\Http\Controllers\ServicesController@show_product')->name('services_id');
