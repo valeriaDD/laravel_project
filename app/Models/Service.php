@@ -18,6 +18,7 @@ class Service extends Model implements LoggableInterface
         'price',
         'abbreviation',
         'appointments_nr',
+        'image',
     ];
 
     public function appointments(){

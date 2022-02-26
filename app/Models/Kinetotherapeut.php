@@ -16,6 +16,7 @@ class Kinetotherapeut extends Model
         'surname',
         'phone_nr',
         'abbreviation',
+        'image',
     ];
 
 
