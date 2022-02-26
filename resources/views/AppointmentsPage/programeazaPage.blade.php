@@ -11,12 +11,12 @@
 
                 @include('AppointmentsPage.navProgramare', ['allServices' => $allServices])
                 @include('AppointmentsPage.cardProgramare', ['service' => $service], ['kinetotherapeut' => $kinetotherapeut])
-            
+
         </div>
     </div>
 
 </div>
 
 @include('layouts.footer')
-
+    <script src="{{ asset('js/appointment.js') }} "></script>
 @endsection

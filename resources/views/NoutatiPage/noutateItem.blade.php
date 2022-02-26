@@ -1,8 +1,9 @@
 <div class="col">
-    <div class="card border-success mt-2 mb-2" style="width: 28rem;height: 25rem">
-
-        <img class="card-img-top" style="width: 28rem;height: 15rem" src="../article_img/{{ $article->image }}"
+    <div class="card border-success mt-2 mb-2" style="width: 25rem;height: 30rem">
+<div>
+        <img class="card-img-top"  src="../article_img/{{ $article->image }}"
              alt="img-fluid">
+</div>
         <div class="card-body">
             <h5 class="card-title">{{ $article->title }}</h5>
             <p class="card-text">{{ $article->excerpt }}</p>
@@ -14,7 +15,6 @@
                     {{ $article->published_at }}
                 </div>
             </div>
-
         </div>
     </div>
 </div>

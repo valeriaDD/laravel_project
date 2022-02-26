@@ -30,7 +30,7 @@ class ServicesAPIController extends Controller
                 'name' => $service->name,
                 'description' => $service->description,
                 'duration' => $service->duration,
-                'view_count' => $service->appointments_nr,
+                'appointments_nr' => $service->appointments_nr,
             ];
         }
         return $this->responseFactory->json($mostPopularServicesArray, 200);

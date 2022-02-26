@@ -23,17 +23,7 @@
     @yield('content')
 
 
-    <script>
-        var button = document.getElementById('myButton');
-        button.onclick = function() {
-            location.assign( url('/appointments/1'));
-        }
 
-        var button = document.getElementById('myButton2');
-        button.onclick = function() {
-            location.assign( url('/appointments/1'));
-        }
-    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"

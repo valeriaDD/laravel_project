@@ -63,7 +63,7 @@
                 <div class="col-6 d-flex ">
                     <select id="kinetotherapist_id" name="kinetotherapist_id" class="form-select"
                             title="Choose one of the following...">
-                        <option value=" " disabled>Alege specialistul</option>
+                        <option value=" " disabled selected>Alege specialistul</option>
                         @foreach ($kinetotherapeut as $choosen)
                             <option
                                 value="{{ $choosen->id }}" {{ (collect(old('kinetotherapist_id'))->contains($choosen->id)) ? 'selected':'' }}>{{ $choosen->name }} {{ $choosen->surname }}
@@ -86,7 +86,7 @@
                 <div class="col-3 d-flex ">
                     <select id="time" value="{{ old('start_time') }}" name="start_time"
                             class='form-select' required>
-                        <option value="" disabled>Alege Ora</option>
+                        <option value="" disabled selected>Alege Ora</option>
                     </select>
                     <span class="input-group-append">
                         <span class="input-group-text bg-light d-block">
