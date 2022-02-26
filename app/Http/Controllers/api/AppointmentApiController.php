@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\Kinetotherapeut;
 use App\Models\Service;
-use App\Models\WorkingDay;
 use Illuminate\Routing\ResponseFactory;
 
 class AppointmentApiController extends Controller
@@ -64,4 +63,6 @@ class AppointmentApiController extends Controller
         $service = Service::findOrFail($service_id)->select("duration");
         dd($service);
     }
+
+
 }
