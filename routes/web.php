@@ -28,7 +28,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('noutati');
 
 //Article Page
 Route::get('/blog/{id}', 'App\Http\Controllers\ArticleController@show')->name('article');
-Route::get('/blog/article/create', 'App\Http\Controllers\ArticleController@create')->name('article');
+Route::get('/blog/article/create', 'App\Http\Controllers\ArticleController@create');
 
 //Services Page with a specific service displayed
 Route::get('/services/{id}', 'App\Http\Controllers\ServicesController@show_product')->name('services_id');
@@ -44,4 +44,5 @@ Route::post('/appointment/{id}/store', 'App\Http\Controllers\AppointmentControll
 
 // APIs
 Route::put('/api/articles/{id}', 'App\Http\Controllers\api\ArticleAPIController@updateArticle');
-Route::get('/api/employee/{id}', 'App\Http\Controllers\api\AppointmentApiController@getWorkingDays');
+Route::get('/api/schedule/{id}', 'App\Http\Controllers\api\AppointmentApiController@getWorkingDays');
+Route::get('/api/appointments/{employeeId}', 'App\Http\Controllers\api\AppointmentApiController@getAppointments');

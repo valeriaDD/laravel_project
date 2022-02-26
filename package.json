@@ -15,5 +15,8 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "vanillajs-datepicker": "^1.2.0"
+    },
+    "dependencies": {
+        "pickadate": "^5.0.0-alpha.3"
     }
 }
