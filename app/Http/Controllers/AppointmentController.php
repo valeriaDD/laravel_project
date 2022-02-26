@@ -28,7 +28,16 @@ class AppointmentController extends Controller
 
     public function store(Service $id, AppointmentRequest $request, AppointmentMailer $mailer){
 
-        $client = Client::create($request->only(['name', 'surname', 'phone', 'email']));
+        $client = Client::where('name', $request->name)
+            ->where('surname', $request->surname)
+            ->where('phone', $request->phone)
+            ->where('email', $request->email)
+            ->first();
+
+        if($client === null)
+        {
+            $client = Client::create($request->only(['name', 'surname', 'phone', 'email']));
+        }
 
         $appointment = Appointment::create($request->only(['kinetotherapist_id', 'date', 'start_time']));
 

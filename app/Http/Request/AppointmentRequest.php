@@ -17,7 +17,7 @@ class AppointmentRequest extends FormRequest
             'name' => ['required','string', 'min:2'],
             'surname' => ['required', 'string', 'min:2' ],
             'email' => ['required', 'string', 'email', 'min:5'],
-            'phone' => ['required','numeric' ],
+            'phone' => ['required','string', 'digits:9'],
             'kinetotherapist_id' => ['required', 'exists:kinetotherapists,id'],
             'date' => ['required'],
             'start_time' => ['required'],
