@@ -24,6 +24,7 @@ class Article extends Model implements LoggableInterface
         'category_id',
         'seo_title',
         'seo_description',
+        'view_count',
     ];
 
 

@@ -22,8 +22,9 @@ class ArticleController extends Controller
 
     public function show($id, Request $request, ModelLogger $logger)
     {
-
         $article = Article::findOrFail($id);
+        $article->view_count++;
+        $article->save();
         $logger->logModel($request->user(), $article);
 
         return view('NoutatiPage.noutatePage', compact('article'));
