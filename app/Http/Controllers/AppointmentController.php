@@ -41,8 +41,11 @@ class AppointmentController extends Controller
                     ->addMinutes( Carbon::parse($id->duration)->minute );
 
         $appointment->end_time = $end_time;
+        $appointment->save();
 
-        $appointment->save();  
+
+        $id->appointments_nr++;
+        $id->save();
 
         $data = $request->validated();
         $data["service_end_time"] = $appointment->end_time;
@@ -51,7 +54,7 @@ class AppointmentController extends Controller
 
 
         $mailer->send($data);
-    
+
 
         return redirect()->back();
     }

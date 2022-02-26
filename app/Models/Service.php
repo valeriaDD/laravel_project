@@ -11,11 +11,13 @@ class Service extends Model implements LoggableInterface
     use HasFactory;
 
     protected $table = 'services';
+    public $timestamps = false;
     protected $fillable = [
         'name',
         'duration',
         'price',
         'abbreviation',
+        'appointments_nr',
     ];
 
     public function appointments(){
@@ -26,8 +28,8 @@ class Service extends Model implements LoggableInterface
 
     public function convertToLoggableString():string{
 
-        return "Service with id: $this->id"; 
-    
+        return "Service with id: $this->id";
+
     }
 
     public function getData():array{

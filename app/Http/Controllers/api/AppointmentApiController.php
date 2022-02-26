@@ -22,7 +22,7 @@ class AppointmentApiController extends Controller
         $this->responseFactory = $responseFactory;
     }
 
-    public function getAppointments($employeeId): \Illuminate\Http\JsonResponse
+    public function getPreviousAppointments($employeeId): \Illuminate\Http\JsonResponse
     {
         $todayDate = date('Y-m-d');
         $appointments = Appointment::select('date', 'start_time', 'end_time')
@@ -46,9 +46,6 @@ class AppointmentApiController extends Controller
 
     public function getWorkingDays($id): \Illuminate\Http\JsonResponse
     {
-
-
-
         $employee = Kinetotherapeut::find($id);
         if ($employee) {
             foreach ($employee->workingDays as $day) {
@@ -58,8 +55,6 @@ class AppointmentApiController extends Controller
                     'end_time' => $day->end_time,
                 ];
             }
-//            $currentURL =\URL::current();
-//            echo($currentURL);
             return $this->responseFactory->json($schedule, 200);
         } else
             return $this->responseFactory->json(null, 404);

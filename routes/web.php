@@ -45,4 +45,4 @@ Route::post('/appointment/{id}/store', 'App\Http\Controllers\AppointmentControll
 // APIs
 Route::put('/api/articles/{id}', 'App\Http\Controllers\api\ArticleAPIController@updateArticle');
 Route::get('/api/schedule/{id}', 'App\Http\Controllers\api\AppointmentApiController@getWorkingDays');
-Route::get('/api/appointments/{employeeId}', 'App\Http\Controllers\api\AppointmentApiController@getAppointments');
+Route::get('/api/appointments/{employeeId}', 'App\Http\Controllers\api\AppointmentApiController@getPreviousAppointments');
