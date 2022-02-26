@@ -33,7 +33,6 @@ function getScheduleInfo() {
         });
         document.getElementById('time').disabled = true;
     }
-
 }
 
 function disableDates() {
