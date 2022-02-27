@@ -65,6 +65,6 @@ class AppointmentController extends Controller
         $mailer->send($data);
 
 
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Programare creata cu succes!');
     }
 }

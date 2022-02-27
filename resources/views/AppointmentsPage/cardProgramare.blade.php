@@ -24,13 +24,20 @@
                 </ul>
             </div>
         @endif
+
+        @if (session('status'))
+            <div class="alert alert-success" role="alert" >
+                {{ session('status') }}
+            </div>
+        @endif
+
         @if (session()->has('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
-        <form action="{{ route('appointment.store', $service->id) }}" method="POST" name="appointment-form">
+        <form action="{{ route('appointment.store', $service->id) }}" method="POST" id="appointment-form">
             @csrf
 
             <div class="row justify-content-md-center p-3">

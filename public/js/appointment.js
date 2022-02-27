@@ -3,11 +3,13 @@ var __webpack_exports__ = {};
 /*!*************************************!*\
   !*** ./resources/js/appointment.js ***!
   \*************************************/
-nameValue = document.getElementById("kinetotherapist_id").value;
+var nameValue = document.getElementById("kinetotherapist_id").value;
+var appointmentForm = document.getElementById('appointment-form');
 getScheduleInfo();
 var workingDaysArray = [];
 var responseJSON = {};
 var workingHoursRange = [];
+var duration;
 
 function getEmployeeID() {
   document.getElementById("kinetotherapist_id").addEventListener("change", function () {
@@ -15,6 +17,25 @@ function getEmployeeID() {
     nameValue = document.getElementById("kinetotherapist_id").value;
     getScheduleInfo();
   });
+}
+
+getServiceInformation();
+
+function getServiceInformation() {
+  var url = window.location.href;
+  url = url.split("/");
+  url = url[url.length - 1];
+  console.log(url);
+
+  if (!isNaN(parseInt(url))) {
+    axios.get("http://localhost:880/api/services/".concat(url)).then(function (response) {
+      duration = transformToHourFormat(response.data['duration']);
+      duration.setTime(duration.getTime() + 15 * 60 * 1000);
+      console.log(duration.getMinutes());
+    })["catch"](function (error) {
+      console.log(error);
+    }).then(disableDates);
+  }
 }
 
 function getScheduleInfo() {
@@ -61,6 +82,7 @@ function displayWorkingHours(day) {
     if (obj["day"] === day) {
       startWorkingTime = transformToHourFormat(obj["start_time"]);
       endWorkingTime = transformToHourFormat(obj["end_time"]);
+      endWorkingTime.setTime(endWorkingTime.getTime() - duration.getHours() * 60 * 60 * 1000 - duration.getMinutes() * 60 * 1000);
       var ranges = [];
       var date = new Date();
       var format = {
@@ -83,11 +105,15 @@ function displayWorkingHours(day) {
 
 function filterAppointments(ranges) {
   var dateValue = document.getElementById("dateID").value;
+  console.log("Appointment duration: " + duration);
   axios.get("http://localhost:880/api/appointments/1").then(function getIt(response) {
     response.data.forEach(function (obj) {
       if (dateValue === obj["date"]) {
         var startTime = transformToHourFormat(obj["start_time"]);
         var endTime = transformToHourFormat(obj["end_time"]);
+        console.log("Other appointments Start Time: " + startTime);
+        startTime.setTime(startTime.getTime() - duration.getHours() * 60 * 60 * 1000 - duration.getMinutes() * 60 * 1000);
+        console.log("Available Start Time" + startTime);
         ranges = ranges.filter(function (range) {
           range = transformToHourFormat(range);
           return !(range.getTime() <= endTime.getTime() && range.getTime() >= startTime.getTime());
@@ -115,11 +141,21 @@ function addWorkingHoursToHTMLTemplate(range) {
 function addWorkingHoursToHTML(ranges) {
   var optionPlace = document.getElementById('time');
   optionPlace.innerHTML = '';
-  ranges.forEach(function (range) {
-    optionPlace.innerHTML += addWorkingHoursToHTMLTemplate(range);
-  });
+
+  if (ranges.length >= 2) {
+    ranges.forEach(function (range) {
+      optionPlace.innerHTML += addWorkingHoursToHTMLTemplate(range);
+    });
+  } else {
+    optionPlace.innerHTML = "<option\n         value=\" \" disabled selected> All full\n      </option>";
+  }
 }
 
+$(document).ready(function () {
+  setTimeout(function () {
+    $(".alert").alert('close');
+  }, 3000);
+});
 getEmployeeID();
 /******/ })()
 ;
