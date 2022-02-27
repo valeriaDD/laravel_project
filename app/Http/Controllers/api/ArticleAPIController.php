@@ -8,6 +8,8 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Routing\ResponseFactory;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 class ArticleAPIController extends Controller
 {
@@ -43,8 +45,25 @@ class ArticleAPIController extends Controller
         return $this->responseFactory->json(['message' => 'Article not found'], 400);
      }
 
+     public function storeArticle(Request $request){
 
-    function getMostPopularArticles(){
+         $article = Article::create([
+             'title' => $request->title,
+             'description' => $request->description,
+             'author_id' => 1,
+             'image' => $request->file('image')->store('/', 'public'),
+             'excerpt'=> Str::limit($request->description, 200) ,
+             'category_id' => $request->category,
+             'seo_title' => $request->title,
+             'seo_description' => Str::limit($request->description, 200),
+             'published_at' => new Carbon(),
+         ]);
+
+         return $this->responseFactory->json(['id' => $article->id], 201);
+     }
+
+
+    public function getMostPopularArticles(){
         $mostPopularArticles = Article::all()
             ->sortByDesc('view_count')
             ->take($itemCount = 5);

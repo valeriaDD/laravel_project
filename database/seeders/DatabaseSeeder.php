@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        User::factory()
-            ->count(7)
-            ->create();
-
-        BlogCategory::factory()
-            ->count(3)
-            ->create();
+//        User::factory()
+//            ->count(7)
+//            ->create();
+//
+//        BlogCategory::factory()
+//            ->count(3)
+//            ->create();
 
 
          Article::factory()
@@ -35,8 +35,8 @@ class DatabaseSeeder extends Seeder
              ->has(BlogTag::factory(), 'tags')
              ->create();
 
-        Comment::factory()
-        ->count(30)
-        ->create();
+//        Comment::factory()
+//        ->count(30)
+//        ->create();
     }
 }

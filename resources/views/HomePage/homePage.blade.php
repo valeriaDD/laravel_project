@@ -5,9 +5,9 @@
     @include('layouts.header')
     <!-- Intro -->
         <div class="container">
-            <div class="row d-flex">
+            <div class="row">
 
-                <div class="col align-self-center">
+                <div class="col-5 align-self-center">
                     <div class="Main">
                         <h1 class="titlu">Ceva inspirational despre masaj</h1>
                         <p class="descriere">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia
@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <div class="col mb-2">
+                <div class="col-6 mb-2">
                     <img src="../Logs/Ellipse 1.png" class="text-start" alt="Img">
                 </div>
 

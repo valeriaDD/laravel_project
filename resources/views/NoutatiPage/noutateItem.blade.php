@@ -1,21 +1,18 @@
-<div class="col">
-    <div class="card border-success mt-2 mb-2" style="width: 25rem;height: 30rem">
-<div>
-        <img class="card-img-top"  src="../article_img/{{ $article->image }}"
-             alt="img-fluid">
-</div>
+<div class="col-lg-4 d-flex align-items-stretch">
+    <div class="card shadow-sm m-1">
+        <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}">
         <div class="card-body">
-            <h5 class="card-title">{{ $article->title }}</h5>
+            <h3>{{ $article->title }}</h3>
             <p class="card-text">{{ $article->excerpt }}</p>
-            <div class="row">
-                <div class="col">
-                    <a href="/blog/{{ $article->id }}" class="nav-link px-2 link-success">Afla mai multe</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="/blog/{{ $article->id }}"
+                       class="btn btn-sm btn-outline-secondary">
+                        View
+                    </a>
                 </div>
-                <div class="col text-end">
-                    {{ $article->published_at }}
-                </div>
+                <small class="text-muted">{{ $article->published_at }}</small>
             </div>
         </div>
     </div>
 </div>
-

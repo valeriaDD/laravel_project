@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Request\ArticlesCommentRequest;
+use App\Models\BlogCategory;
 use App\Models\Comment;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -35,7 +36,9 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('NoutatiPage.create');
+        $categories = BlogCategory::all();
+
+        return view('NoutatiPage.create', compact('categories'));
     }
 
     public function createComment($id, ArticlesCommentRequest $request)

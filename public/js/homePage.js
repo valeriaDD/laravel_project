@@ -3,6 +3,16 @@ var __webpack_exports__ = {};
 /*!**********************************!*\
   !*** ./resources/js/homePage.js ***!
   \**********************************/
-console.log("here i am");
+var button = document.getElementById('myButton');
+
+button.onclick = function () {
+  location.assign(url('/appointments/1'));
+};
+
+button = document.getElementById('myButton2');
+
+button.onclick = function () {
+  location.assign(url('/appointments/1'));
+};
 /******/ })()
 ;

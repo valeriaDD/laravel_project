@@ -27,6 +27,9 @@ class Article extends Model implements LoggableInterface
         'view_count',
     ];
 
+    public function getImageUrlAttribute() {
+        return \Illuminate\Support\Facades\Storage::url($this->image);
+    }
 
     public function category()
     {

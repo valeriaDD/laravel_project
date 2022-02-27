@@ -24,7 +24,7 @@ class ArticleFactory extends Factory
             'author_id' => User::all()->random()->id,
             'published_at' => $this->faker->dateTime(),
             'excerpt' => $this->faker->sentence(),
-            'image' => $this->faker->image('public/article_img',640,480, null, false),
+            'image' => $this->faker->image('storage/app/public',640,480, null, false),
             'seo_title' => $this->faker->sentence(),
             'seo_description' => $this->faker->sentence(),
         ];

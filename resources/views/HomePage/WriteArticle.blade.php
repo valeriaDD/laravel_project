@@ -8,7 +8,7 @@
         <div class="col-3 ">
             <a href="{{ url('/blog') }}" type="button" class="btn btn-dark mt-3">Citeste articolele!</a>
         </div>
-        <div class="col-2 ">
+        <div class="col-3 ">
             <a href="{{ url('/blog/article/create') }}" type="button" style="" class="btn btn-success mt-3">Scrie un articol!</a>
         </div>
     </div>

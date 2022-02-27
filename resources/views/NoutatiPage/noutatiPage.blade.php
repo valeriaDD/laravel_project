@@ -47,7 +47,7 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="row row-fluid row-cols-1 row-cols-sm-2 row-cols-md-3 ">
                         @foreach ($articles as $article)
                             @include('NoutatiPage.noutateItem', ['article' => $article])
                         @endforeach
