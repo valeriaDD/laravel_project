@@ -2,8 +2,8 @@
     <div class="card shadow-sm m-1">
         <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}">
         <div class="card-body">
-            <h3>{{ $article->title }}</h3>
-            <p class="card-text">{{ $article->excerpt }}</p>
+            <h5>{{ $article->title }}</h5>
+            <p class="card-text small">{{ $article->excerpt }}</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <a href="/blog/{{ $article->id }}"
@@ -11,7 +11,7 @@
                         View
                     </a>
                 </div>
-                <small class="text-muted">{{ $article->published_at }}</small>
+                <small class="text-muted">{{\Carbon\Carbon::parse($article->published_at)->format('d/m/Y H:i')}}</small>
             </div>
         </div>
     </div>

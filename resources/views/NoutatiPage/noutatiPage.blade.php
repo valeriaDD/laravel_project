@@ -10,12 +10,13 @@
 
 
         <div class="row d-flex justify-content-around">
-            <div class="col-8">
+            <div class="col-8 shadow-lg my-2">
                 <div class="row d-flex justify-content-center">
                     <div class="col">
                         <div class="d-flex justify-content-start">
                             <a href="/blog/article/create" class="btn btn-success m-2"><img
-                                    src="{{url('/Logs/pen-icon.jpg')}}" style="height: 20px; width: 20px;">Creaza un articol</a>
+                                    src="{{url('/Logs/pen-icon.jpg')}}" style="height: 20px; width: 20px;">Creaza un
+                                articol</a>
                         </div>
                         <form method="GET" action="/blog">
                             <div class="row">
@@ -61,7 +62,7 @@
             </div>
             <div class="col-4">
                 <div>
-                    <div class="d-flex align-items-center p-3 my-3 rounded shadow-sm " style="height: 5rem">
+                    <div class="d-flex align-items-center p-3 my-2 rounded shadow-lg " style="height: 5rem">
                         <div class="row">
                             <div class="col-3">
                                 <img src="{{url('/Logs/Logo2.png')}}">
@@ -73,16 +74,36 @@
                         </div>
                     </div>
 
-                    <div class="my-3 p-3 bg-body rounded shadow-sm">
+                    <div class="my-3 p-3 rounded  shadow-lg" id="articles-holder">
 
-                        {{--                        Popular article template goes here--}}
+                        <template popular-articles-template>
+                            <div class="card border-success mb-3" style="max-width: 20rem;">
+                                <div class="row" id = "body">
+
+{{--                                    <div class="col-5" style="background-image:url({{url('/Logs/doc1.png')}} );--}}
+{{--                                        background-position: center; " image>--}}
+{{--                                    </div>--}}
+
+                                    <div class="col-7 ms-0">
+                                        <div class="card-body">
+                                            <div id="title">
+                                                <a href="#" class="card-title small"><strong>Primary card title</strong></a>
+                                            </div>
+                                            <p id="excerpt" class="card-text small">Some quick example text to build on
+                                                the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
 
                     </div>
                 </div>
-
             </div>
 
         </div>
+
+    </div>
 
 
     </div>
@@ -90,5 +111,8 @@
     <div class="footerContacte p-5">
         @include('layouts.footer')
     </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{asset('js/mostPopularArticle.js')}}"></script>
 
 @endsection

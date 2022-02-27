@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\ResponseFactory;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -79,11 +80,12 @@ class ArticleAPIController extends Controller
     {
         $mostPopularArticles = Article::all()
             ->sortByDesc('view_count')
-            ->take($itemCount = 5);
+            ->take($itemCount = 4);
         $articlesArray = [];
         foreach ($mostPopularArticles as $article) {
             $articlesArray[] = [
                 'id' => $article->id,
+                'image' => Storage::url($article->image),
                 'title' => $article->title,
                 'excerpt' => $article->excerpt,
                 'view_count' => $article->view_count,

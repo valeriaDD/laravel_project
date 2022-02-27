@@ -3,5 +3,6 @@
     "/js/homePage.js": "/js/homePage.js",
     "/js/appointment.js": "/js/appointment.js",
     "/js/createArticle.js": "/js/createArticle.js",
+    "/js/mostPopularArticle.js": "/js/mostPopularArticle.js",
     "/css/app.css": "/css/app.css"
 }

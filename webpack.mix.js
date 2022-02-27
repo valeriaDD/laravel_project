@@ -15,4 +15,5 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css')
     .js('resources/js/homePage.js', 'public/js')
     .js('resources/js/appointment.js', 'public/js')
-    .js('resources/js/createArticle.js', 'public/js');
+    .js('resources/js/createArticle.js', 'public/js')
+    .js('resources/js/mostPopularArticle.js', 'public/js');
