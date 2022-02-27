@@ -33,7 +33,8 @@ createArticleForm.onsubmit = function (event) {
   axios.post('http://localhost:880/api/article/store', formData).then(function (response) {
     successMessage();
   })["catch"](function (error) {
-    console.log(error);
+    errors = error.response.data[0];
+    errorMessage(errors);
   });
 };
 
@@ -41,6 +42,21 @@ function successMessage() {
   Swal.fire('Good job!', 'Articolul a fost postat cu success!', 'success');
   createArticleForm.reset();
   imagePreview.hidden = true;
+}
+
+function errorMessage(errors) {
+  var html = "";
+
+  for (var error in errors) {
+    html += "<li>".concat(errors[error], "</li>");
+  }
+
+  Swal.fire({
+    icon: 'error',
+    title: 'Ups...',
+    text: 'Verifica inca o data datele introduse!',
+    html: "".concat(html)
+  });
 }
 /******/ })()
 ;

@@ -19,7 +19,7 @@ class ServicesAPIController extends Controller
         $this->responseFactory = $responseFactory;
     }
 
-    function getMostPopularServices(){
+    public function getMostPopularServices(){
         $mostPopularServices = Service::all()
             ->sortByDesc('appointments_nr')
             ->take($itemCount = 3);
@@ -34,5 +34,22 @@ class ServicesAPIController extends Controller
             ];
         }
         return $this->responseFactory->json($mostPopularServicesArray, 200);
+    }
+
+    public function getServiceInformation($id){
+
+        $service = Service::find($id);
+
+        if($service){
+            $serviceInformation = [
+                'id' => $service->id,
+                'name' => $service->name,
+                'description' => $service->description,
+                'duration' => $service->duration,
+                'appointments_nr' => $service->appointments_nr,
+            ];
+            return $this->responseFactory->json($serviceInformation, 200);
+        }
+        return $this->responseFactory->json([], 400);
     }
 }

@@ -114,8 +114,7 @@
         {{-- END Appointment making form --}}
 
     </div>
-{{--    <script type="text/javascript" src="jquery.min.js"></script>--}}
-{{--    <link href="jquery.timepicker.css">--}}
+
     <script
         src="https://code.jquery.com/jquery-1.10.2.js"
         integrity="sha256-it5nQKHTz+34HijZJQkpNBIHsjpV8b6QzMJs9tmOBSo="
@@ -131,5 +130,7 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     </div>

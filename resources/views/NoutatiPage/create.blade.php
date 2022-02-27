@@ -13,14 +13,19 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8 mb-3">
                             <input type="text" name="title" id="title" value="{{old('title')}}" class="form-control"
-                                   placeholder="Titlul articolului">
+                                   placeholder="Titlul articolului" required>
                         </div>
 
                         <div class="col-md-8 mb-3">
+
                             <select type="text" name="category" id="category" value="{{old('category')}}"
                                     class="form-select"
-                                    placeholder="Titlul articolului">
+                                    placeholder="Titlul articolului" required>
                                 <option disabled selected> Alege Categoria</option>
+                                @foreach($categories as $category)
+                                    <option
+                                        value="{{$category->id}}" {{ (collect(old('category'))->contains($category->id)) ? 'selected':'' }} > {{$category->name}} </option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -29,7 +34,7 @@
                                 <input class="form-control mb-0" type="text" value="Descrierea"
                                        aria-label="Disabled input example" disabled readonly>
                                 <textarea type="text" name="description" class="form-control" id="description"
-                                          rows="7">{{ old('description') }}</textarea>
+                                          rows="7" required>{{ old('description') }}</textarea>
                             </div>
                         </div>
 
@@ -38,10 +43,10 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <input type="file" accept="image/*" name="image" class="form-control"
-                                               id="choose-img">
+                                               id="choose-img" required>
                                     </div>
                                     <div class="col-md-3">
-                                        <img class="img-fluid" id="img-preview" hidden>
+                                        <img class="img-fluid" id="img-preview" hidden >
                                     </div>
                                 </div>
 
@@ -63,6 +68,7 @@
                 <img src="{{url('/Logs/art.png')}}" class="img-fluid" alt="Img">
             </div>
         </div>
+
 
 
     </div>

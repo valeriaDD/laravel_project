@@ -59,10 +59,5 @@ class AppointmentApiController extends Controller
             return $this->responseFactory->json(null, 404);
     }
 
-    function getServiceDuration($service_id){
-        $service = Service::findOrFail($service_id)->select("duration");
-        dd($service);
-    }
-
 
 }
