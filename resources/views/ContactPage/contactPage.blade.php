@@ -18,6 +18,11 @@
             <div class="col-8 align-self-center">
                 <div class="h4 text-center ">Contactati-ne!</div>
                 <div class="p text-center p-3"> Daca aveti ceva neclaritati, nu ezitati sa ne contactati! </div>
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert" >
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <form action="{{ route('contacts.send') }}" method="POST" name="contact-form">
                     <div class="row justify-content-center">
 
@@ -29,7 +34,7 @@
                                 <input type="email" required="required" value="{{ old('email') }}" name="email" class="form-control" id="email" placeholder="Email">
                             </div>
                         </div>
-                        
+
                         <div class="col-sm-4">
                             <div class="input-group mb-3">
                                 @error('name')
@@ -82,4 +87,14 @@
         @include('layouts.footer')
     </div>
 
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $(".alert").alert('close');
+            }, 3000);
+        });
+    </script>
+
 @endsection
+
+

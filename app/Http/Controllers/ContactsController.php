@@ -24,6 +24,6 @@ class ContactsController extends Controller
         $mailer->send($data);
 
 
-        return redirect()->route('contacts')->withInput($data);
+        return redirect()->back()->with('status', 'Mesajul a fost trimis cu success!');
     }
 }

@@ -8,6 +8,12 @@
     </div>
 @endif
 
+@if (session('status'))
+    <div class="alert alert-success" role="alert" >
+        {{ session('status') }}
+    </div>
+@endif
+
 <form action="{{ route('comment.store',$article->id)}}" method="POST">
     @csrf
     <label class="h3 mt-3 mb-4">Posteaza un comentariu:</label>
@@ -33,3 +39,11 @@
 
 <script src="sweetalert2.min.js"></script>
 <link rel="stylesheet" href="sweetalert2.min.css">
+
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".alert").alert('close');
+        }, 3000);
+    });
+</script>

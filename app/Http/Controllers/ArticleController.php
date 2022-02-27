@@ -49,6 +49,6 @@ class ArticleController extends Controller
         $comment->article_id = $id;
 
         $comment->save();
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Comentariu postat cu success!');
     }
 }

@@ -19,8 +19,10 @@
                     </div>
                 </div>
 
-                <div class="container mb-5">
-                    <img class="card-img-top2  p-2" src="../article_img/{{ $article->image }}" alt="First slide" sizes="3">
+                <div class="d-flex justify-content-center mb-5">
+                    <div class="col-6">
+                    <img class="img-fluid" src="{{ Storage::url($article->image) }}" alt="First slide" width="600rem">
+                    </div>
                 </div>
 
 
