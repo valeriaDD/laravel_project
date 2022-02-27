@@ -14,7 +14,8 @@
         <div class="row d-flex p-3 justify-content-around">
             <div class="col-6 ">
                 <div class="time-logo h5 fw-bold">
-                    <img class="rounded" src="../Logs/time-svgrepo-com 1.png"> {{\Carbon\Carbon::parse($service->duration)->format('H:i')}}
+                    <img class="rounded"
+                         src="../Logs/time-svgrepo-com 1.png"> {{\Carbon\Carbon::parse($service->duration)->format('H:i')}}
                 </div>
                 <div class="h5 mt-3 fw-bold">Descriere:</div>
                 <p class="infoServicii">
@@ -23,12 +24,11 @@
 
             </div>
 
-            <div class="col-5 mb-2 align-self-center">
-                <img src="" class="img-fluid" alt="Img">
+            <div class="col-4 mb-2 align-self-center">
+                <img src="{{url('./Logs/'.$service->image)}}" style="max-height: 280px" class="img-fluid shadow-lg rounded" alt="Img">
             </div>
 
         </div>
-
 
 
         <div class="pret-programare">
@@ -41,7 +41,8 @@
                 </div>
 
                 <div class="col-4 ">
-                    <a href="/appointments/{{ $service->id }}"  type="submit" id='myButton2' class="btn btn-outline-secondary"> Programeaza-te </a>
+                    <a href="/appointments/{{ $service->id }}" type="submit" id='myButton2'
+                       class="btn btn-outline-secondary"> Programeaza-te </a>
                 </div>
 
             </div>
