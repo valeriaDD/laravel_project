@@ -79,11 +79,6 @@
                         <template popular-articles-template>
                             <div class="card border-success mb-3" style="max-width: 20rem;">
                                 <div class="row" id = "body">
-
-{{--                                    <div class="col-5" style="background-image:url({{url('/Logs/doc1.png')}} );--}}
-{{--                                        background-position: center; " image>--}}
-{{--                                    </div>--}}
-
                                     <div class="col-7 ms-0">
                                         <div class="card-body">
                                             <div id="title">

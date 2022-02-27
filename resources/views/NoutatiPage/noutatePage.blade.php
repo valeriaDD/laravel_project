@@ -34,7 +34,7 @@
                     <p class="text-end">Autor: {{ $article->user->name }} | Email: {{ $article->user->email }}
                     </p>
                     <p class="text-end">Categorie: {{ $article->category->name }}</p>
-                    <p class="text-end">Publicat: {{ $article->published_at }}</p>
+                    <p class="text-end">Publicat: {{\Carbon\Carbon::parse($article->published_at)->format('d/m/Y H:i')}}</p>
 
                 </div>
 

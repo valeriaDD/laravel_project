@@ -13,7 +13,8 @@
 
         <div class="row d-flex p-3 justify-content-around">
             <div class="col-6 ">
-                <div class="time-logo h5 fw-bold"><img class="rounded" src="../Logs/time-svgrepo-com 1.png"> {{ $service->duration }}
+                <div class="time-logo h5 fw-bold">
+                    <img class="rounded" src="../Logs/time-svgrepo-com 1.png"> {{\Carbon\Carbon::parse($service->duration)->format('H:i')}}
                 </div>
                 <div class="h5 mt-3 fw-bold">Descriere:</div>
                 <p class="infoServicii">
@@ -23,7 +24,7 @@
             </div>
 
             <div class="col-5 mb-2 align-self-center">
-                <img src="../Logs/servicii1.png" class="img-fluid" alt="Img">
+                <img src="" class="img-fluid" alt="Img">
             </div>
 
         </div>
