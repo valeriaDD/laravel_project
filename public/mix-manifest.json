@@ -4,5 +4,6 @@
     "/js/appointment.js": "/js/appointment.js",
     "/js/createArticle.js": "/js/createArticle.js",
     "/js/mostPopularArticle.js": "/js/mostPopularArticle.js",
+    "/js/carousel.js": "/js/carousel.js",
     "/css/app.css": "/css/app.css"
 }

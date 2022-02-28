@@ -1,5 +1,3 @@
-console.log("miaw")
-
 const popularArticleTemplate = document.querySelector('[popular-articles-template]');
 const articleHolderList =  document.getElementById('articles-holder');
 

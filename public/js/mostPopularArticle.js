@@ -3,7 +3,6 @@ var __webpack_exports__ = {};
 /*!********************************************!*\
   !*** ./resources/js/mostPopularArticle.js ***!
   \********************************************/
-console.log("miaw");
 var popularArticleTemplate = document.querySelector('[popular-articles-template]');
 var articleHolderList = document.getElementById('articles-holder');
 axios.get("http://localhost:880/api/articles/most-popular").then(function (response) {

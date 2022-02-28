@@ -51,6 +51,7 @@ Route::post('/api/article/store', 'App\Http\Controllers\api\ArticleAPIController
 Route::get('/api/schedule/{id}', 'App\Http\Controllers\api\AppointmentApiController@getWorkingDays');
 Route::get('/api/appointments/{employeeId}', 'App\Http\Controllers\api\AppointmentApiController@getPreviousAppointments');
 
-Route::get('/api/services/{id}', 'App\Http\Controllers\api\ServicesAPIController@getServiceInformation');
 Route::get('/api/services/most-popular', 'App\Http\Controllers\api\ServicesAPIController@getMostPopularServices');
+Route::get('/api/services/{id}', 'App\Http\Controllers\api\ServicesAPIController@getServiceInformation');
+
 

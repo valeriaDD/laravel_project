@@ -16,4 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/homePage.js', 'public/js')
     .js('resources/js/appointment.js', 'public/js')
     .js('resources/js/createArticle.js', 'public/js')
-    .js('resources/js/mostPopularArticle.js', 'public/js');
+    .js('resources/js/mostPopularArticle.js', 'public/js')
+    .js('resources/js/carousel.js', 'public/js');

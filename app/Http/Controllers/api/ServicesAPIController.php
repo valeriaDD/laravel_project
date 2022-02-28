@@ -5,6 +5,8 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Routing\ResponseFactory;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ServicesAPIController extends Controller
 {
@@ -19,28 +21,31 @@ class ServicesAPIController extends Controller
         $this->responseFactory = $responseFactory;
     }
 
-    public function getMostPopularServices(){
-        $mostPopularServices = Service::all()
+    public function getMostPopularServices()
+    {
+        $mostPopularArticles = Service::all()
             ->sortByDesc('appointments_nr')
-            ->take($itemCount = 3);
-        $mostPopularServicesArray = [];
-        foreach ($mostPopularServices as $service) {
-            $mostPopularServicesArray[] = [
+            ->take(3);
+        $articlesArray = [];
+        foreach ($mostPopularArticles as $service) {
+            $articlesArray[] = [
                 'id' => $service->id,
                 'name' => $service->name,
-                'description' => $service->description,
+                'description' => Str::limit($service->description, 100),
                 'duration' => $service->duration,
+                'image' =>$service->image,
                 'appointments_nr' => $service->appointments_nr,
             ];
         }
-        return $this->responseFactory->json($mostPopularServicesArray, 200);
+        return $this->responseFactory->json($articlesArray, 200);
     }
 
-    public function getServiceInformation($id){
+    public function getServiceInformation($id)
+    {
 
         $service = Service::find($id);
 
-        if($service){
+        if ($service) {
             $serviceInformation = [
                 'id' => $service->id,
                 'name' => $service->name,

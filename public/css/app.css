@@ -43,15 +43,6 @@ a:hover {
     text-shadow: 1px 3px 4px;
 }
 
-
-
-.carousel-inner{
-    background: rgb(255, 255, 255);
-    height : 269px;
-    width: 770px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-}
-
 .InfoPart{
     margin-top: 150px;
     padding: 70px;
